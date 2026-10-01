@@ -1,0 +1,153 @@
+---
+/**
+ * La barra y el programa de mano. En la gramática "Programa de concierto"
+ * (scrollcraft/builds/lajoven/BRIEF.md) la navegación ES el programa: el botón
+ * de tres líneas, a la izquierda, abre la lista completa de movimientos con su
+ * tempo, y la lista marca el movimiento en curso.
+ * El lockup "Bolívar Davivienda" no va aquí (excepción de marca, DESIGN.md §6).
+ */
+import { locales, codigosLocale, nombresLocale, rutaLocalizada, useTranslations, type Locale } from '../../i18n/ui';
+import { getContenido } from '../../i18n/contenido';
+import ala from '../../assets/marca/ala.svg?raw';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const { movimientos } = getContenido(locale);
+---
+
+<header class="barra">
+  <button
+    type="button"
+    class="barra__menu"
+    aria-expanded="false"
+    aria-controls="programa"
+    aria-label={t('nav.abrirPrograma')}
+    data-programa-abrir
+  >
+    <svg class="barra__lineas" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 7h18" />
+      <path d="M3 12h18" />
+      <path d="M3 17h18" />
+    </svg>
+  </button>
+
+  <a class="barra__marca" href="#obertura" aria-label={t('marca.inicio')}>
+    <span class="barra__ala" set:html={ala} />
+    <span>LA JOVEN</span>
+  </a>
+
+  <div class="barra__derecha">
+    <ul class="barra__idiomas" aria-label={t('nav.idioma')}>
+      {
+        locales.map((lang) => (
+          <li>
+            <a href={rutaLocalizada(lang)} hreflang={lang} aria-current={lang === locale ? 'true' : undefined}>
+              {codigosLocale[lang]}
+              <span class="visualmente-oculto">{nombresLocale[lang]}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a class="barra__cta" href="#contacto">{t('nav.contacto')}</a>
+  </div>
+</header>
+
+<dialog id="programa" class="programa" aria-labelledby="programa-titulo">
+  <div class="programa__cabecera">
+    <p id="programa-titulo" class="programa__titulo">{t('nav.programa')}</p>
+    <button type="button" class="programa__cerrar" data-programa-cerrar aria-label={t('nav.cerrarMenu')}>
+      {t('nav.cerrar')}
+    </button>
+  </div>
+  <ol class="programa__lista">
+    {
+      movimientos.map((m) => (
+        <li>
+          <a href={`#${m.id}`} data-programa-cerrar data-programa-link={m.id}>
+            <span class="programa__num">{m.numero}</span>
+            <span class="programa__nombre">{m.nombre}</span>
+            <span class="programa__tempo">{m.tempo}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+  <ul class="programa__idiomas" aria-label={t('nav.idioma')}>
+    {
+      locales.map((lang) => (
+        <li>
+          <a href={rutaLocalizada(lang)} hreflang={lang} lang={lang} aria-current={lang === locale ? 'true' : undefined}>
+            {nombresLocale[lang]}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <a class="programa__creditos" href="/creditos/">{t('nav.creditos')}</a>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('programa') as HTMLDialogElement | null;
+  const abrir = document.querySelector<HTMLButtonElement>('[data-programa-abrir]');
+
+  if (dialog && abrir) {
+    abrir.addEventListener('click', () => {
+      dialog.showModal();
+      abrir.setAttribute('aria-expanded', 'true');
+      dialog.querySelector<HTMLElement>('[aria-current="location"]')?.focus();
+    });
+    dialog.addEventListener('close', () => {
+      abrir.setAttribute('aria-expanded', 'false');
+      abrir.focus();
+    });
+    dialog.querySelectorAll<HTMLElement>('[data-programa-cerrar]').forEach((el) =>
+      el.addEventListener('click', () => dialog.close()),
+    );
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+  }
+
+  // Fuera del hero la barra se vuelve sólida para que nada se lea a través.
+  const barra = document.querySelector<HTMLElement>('.barra');
+  const marcarFija = () => barra?.classList.toggle('barra--fija', window.scrollY > window.innerHeight * 0.6);
+  marcarFija();
+  window.addEventListener('scroll', marcarFija, { passive: true });
+
+  const secciones = Array.from(document.querySelectorAll<HTMLElement>('[data-movimiento]'));
+  if (secciones.length && 'IntersectionObserver' in window) {
+    // El movimiento en curso (el que cruza la línea media) queda marcado en el programa.
+    const enCurso = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const id = (e.target as HTMLElement).dataset.movimiento;
+          document.querySelectorAll<HTMLElement>('[data-programa-link]').forEach((a) => {
+            if (a.dataset.programaLink === id) a.setAttribute('aria-current', 'location');
+            else a.removeAttribute('aria-current');
+          });
+        }
+      },
+      { rootMargin: '-50% 0px -50% 0px' },
+    );
+    secciones.forEach((s) => enCurso.observe(s));
+
+    // La barra cambia a tinta oscura mientras pasa sobre un suelo claro.
+    if (barra) {
+      const bajoBarra = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) barra.classList.toggle('barra--claro', (e.target as HTMLElement).dataset.suelo === 'claro');
+          }
+        },
+        { rootMargin: '0px 0px -94% 0px' },
+      );
+      secciones.forEach((s) => bajoBarra.observe(s));
+    }
+  }
+</script>

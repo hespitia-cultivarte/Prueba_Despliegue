@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Jost:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#E7DFD3; color:#14100D; font-family:'Archivo',sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#186E68; text-decoration:none; }
+  a:hover { color:#0F4A46; }
+</style>
+</helmet>
+
+<div style="padding:44px 44px 90px">
+
+  <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:baseline;justify-content:space-between;border-bottom:1.5px solid #14100D;padding-bottom:14px;max-width:1400px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6B6157">Entrega 2 · Mobile 390 px · Territorio A “Sala Oscura”</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6B6157">Orden 6.1 → 6.11 · desktop después</div>
+  </div>
+
+  <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+    <div style="margin-top:26px;max-width:1080px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:22px;background:#14100D;color:#F2EDE6;padding:24px">
+      <div style="grid-column:1/-1;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#F5C77E">Supuestos que tomé por las preguntas que dejó en blanco</div>
+      <sc-for list="{{ assumptions }}" as="a" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578">{{ a.k }}</div>
+          <div style="font-size:15.5px;line-height:1.5;color:#D8CFC2;margin-top:6px;font-family:'Newsreader',serif">{{ a.v }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <div style="display:flex;flex-wrap:wrap;gap:54px;margin-top:44px;align-items:flex-start">
+
+    <!-- ============ 6.1 HERO ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.1 · HERO</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Loop de 15 s. El nombre entra antes que cualquier explicación. Sin sonido, sin botón de play.</div></div>
+      <div style="width:390px;height:844px;background:#14100D;position:relative;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(112deg,#241C16 0 11px,#1B1510 11px 22px)"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(130% 62% at 72% 4%,rgba(245,199,126,.26) 0%,rgba(20,16,13,0) 62%)"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(to top,#14100D 0%,rgba(20,16,13,.72) 48%,rgba(20,16,13,0) 100%)"></div>
+        <div style="position:absolute;top:300px;left:0;right:0;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#9A9083">VIDEO LOOP 15 s · 9:16 · corte a negro 600 ms</div>
+
+        <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:20px 20px 0;gap:10px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#9A9083;border:1px dashed rgba(242,237,230,.35);padding:8px 10px">SVG ALA</div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <span style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.16em;color:#F5C77E">{{ langCode }}</span>
+            <span style="font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.06em;color:#F2EDE6;border:1px solid rgba(242,237,230,.5);border-radius:999px;padding:11px 15px">{{ contactLabel }}</span>
+            <div style="display:flex;flex-direction:column;gap:5px;padding:12px 4px">
+              <div style="width:24px;height:1.5px;background:#F2EDE6"></div>
+              <div style="width:24px;height:1.5px;background:#F2EDE6"></div>
+              <div style="width:16px;height:1.5px;background:#F2EDE6"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="position:relative;margin-top:auto;padding:0 20px 34px">
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-stretch:expanded;font-size:74px;line-height:.84;letter-spacing:-.04em;color:#F2EDE6">LA<br>JOVEN</div>
+          <div style="width:40px;height:2px;background:#F5C77E;margin:18px 0 14px"></div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:500;font-size:15px;line-height:1.35;color:#E3DACB;max-width:27ch">{{ heroSub }}</div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:30px">
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9A9083">{{ scrollHint }}</div>
+            <div style="font-family:'Archivo',sans-serif;font-size:22px;color:#F5C77E;line-height:1">⌄</div>
+          </div>
+        </div>
+
+        <div style="position:absolute;right:9px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:11px;align-items:center">
+          <div style="width:7px;height:7px;border-radius:50%;background:#F5C77E"></div>
+          <div style="width:4px;height:4px;border-radius:50%;background:rgba(242,237,230,.4)"></div>
+          <div style="width:4px;height:4px;border-radius:50%;background:rgba(242,237,230,.4)"></div>
+          <div style="width:4px;height:4px;border-radius:50%;background:rgba(242,237,230,.4)"></div>
+          <div style="width:4px;height:4px;border-radius:50%;background:rgba(242,237,230,.4)"></div>
+          <div style="width:4px;height:4px;border-radius:50%;background:rgba(242,237,230,.4)"></div>
+          <div style="width:4px;height:4px;border-radius:50%;background:rgba(242,237,230,.4)"></div>
+          <div style="width:4px;height:4px;border-radius:50%;background:rgba(242,237,230,.4)"></div>
+          <div style="width:4px;height:4px;border-radius:50%;background:rgba(242,237,230,.4)"></div>
+          <div style="width:4px;height:4px;border-radius:50%;background:rgba(242,237,230,.4)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.2 QUIENES SOMOS ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.2 · QUIÉNES SOMOS</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Tres bloques encadenados, copy del PDF 1 intacto. Cero cifras. La foto manda y el texto entra en serif: alguien está hablando.</div></div>
+      <div style="width:390px;background:#14100D;position:relative;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:64px 22px 0">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C77E">01 — Postura</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:46px;line-height:.9;letter-spacing:-.03em;color:#F2EDE6;margin-top:14px">Lo que<br>nos mueve</div>
+        </div>
+        <div style="margin:22px 0 0;height:300px;background:repeating-linear-gradient(112deg,#2A211A 0 11px,#1F1812 11px 22px);display:flex;align-items:center;justify-content:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7A7064;text-align:center;line-height:1.7">FOTO 4:5 · ESCENA A CONTRALUZ<br>tratamiento: ámbar en altas, grano fino</div>
+        </div>
+        <div style="padding:26px 22px 54px">
+          <p style="font-family:'Newsreader',serif;font-weight:300;font-size:21px;line-height:1.45;color:#EDE5DA;margin:0">Somos una orquesta que entiende la música como una experiencia viva. No venimos al escenario únicamente a interpretar partituras. <em style="font-style:italic;color:#F5C77E">Venimos a habitarlas.</em></p>
+        </div>
+
+        <div style="height:1px;background:rgba(242,237,230,.14);margin:0 22px"></div>
+
+        <div style="padding:54px 22px 0">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C77E">02 — Comunidad</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:46px;line-height:.9;letter-spacing:-.03em;color:#F2EDE6;margin-top:14px">De dónde<br>venimos</div>
+        </div>
+        <div style="margin:22px 0 0;height:300px;background:repeating-linear-gradient(112deg,#2A211A 0 11px,#1F1812 11px 22px);display:flex;align-items:center;justify-content:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7A7064;text-align:center;line-height:1.7">FOTO 4:5 · GRUPO FUERA DEL ESCENARIO<br>ensayo o viaje, no fila de orquesta</div>
+        </div>
+        <div style="padding:26px 22px 54px">
+          <p style="font-family:'Newsreader',serif;font-weight:300;font-size:21px;line-height:1.45;color:#EDE5DA;margin:0">Somos jóvenes músicos de entre 16 y 24 años provenientes de todas las regiones de Colombia. Venimos de ciudades, pueblos, montañas y costas. Tenemos historias distintas, trayectorias distintas y formas distintas de entender el mundo.</p>
+        </div>
+
+        <div style="height:1px;background:rgba(242,237,230,.14);margin:0 22px"></div>
+
+        <div style="padding:54px 22px 0">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C77E">03 — Identidad</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:46px;line-height:.9;letter-spacing:-.03em;color:#F2EDE6;margin-top:14px">Lo que<br>sucede<br>en escena</div>
+        </div>
+        <div style="margin:22px 0 0;height:340px;background:repeating-linear-gradient(112deg,#2A211A 0 11px,#1F1812 11px 22px);display:flex;align-items:center;justify-content:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7A7064;text-align:center;line-height:1.7">FOTO 4:5 · CUERPO EN MOVIMIENTO<br>con instrumento, sobre escena</div>
+        </div>
+        <div style="padding:26px 22px 70px">
+          <p style="font-family:'Newsreader',serif;font-weight:300;font-size:21px;line-height:1.45;color:#EDE5DA;margin:0">La música sinfónica convive con el circo, la danza contemporánea y los títeres. Cien músicos que también son maestros y voluntarios, de La Guajira al Amazonas.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#9A9083;margin-top:18px">↑ copy nuevo, pendiente de aprobación · el PDF 1 no traía este bloque escrito</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.3 DIFERENCIAL ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.3 · EL DIFERENCIAL</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Cuatro bloques numerados a sangre. Cada foto tiene que probar su título sin pie de foto.</div></div>
+      <div style="width:390px;background:#14100D;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:70px 22px 40px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C77E">Más allá del concierto</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-stretch:expanded;font-size:52px;line-height:.87;letter-spacing:-.035em;color:#F2EDE6;margin-top:16px">La música<br>como punto<br>de partida</div>
+        </div>
+        <sc-for list="{{ diferencial }}" as="d" hint-placeholder-count="4">
+          <div style="border-top:1px solid rgba(242,237,230,.14)">
+            <div style="height:250px;background:repeating-linear-gradient(112deg,#2A211A 0 11px,#1F1812 11px 22px);display:flex;align-items:center;justify-content:center">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7A7064;text-align:center;line-height:1.7">FOTO 3:2 A SANGRE<br>{{ d.shot }}</div>
+            </div>
+            <div style="padding:24px 22px 40px;display:flex;gap:16px;align-items:flex-start">
+              <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;color:#F5C77E;padding-top:6px">{{ d.n }}</div>
+              <div>
+                <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:28px;line-height:1.05;letter-spacing:-.02em;color:#F2EDE6">{{ d.title }}</div>
+                <p style="font-family:'Newsreader',serif;font-weight:300;font-size:18.5px;line-height:1.5;color:#CFC5B8;margin:10px 0 0">{{ d.body }}</p>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- ============ 6.3b FRASE ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.3b · LA FRASE</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Su propio momento de scroll: negro pleno, header oculto, sin imagen. La segunda mitad entra en peso al llegar al centro. Con <span style="font-family:'IBM Plex Mono',monospace;font-size:13px">reduced-motion</span>, está desde el principio.</div></div>
+      <div style="width:390px;height:844px;background:#0D0A08;display:flex;flex-direction:column;justify-content:center;padding:0 24px;position:relative;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="font-family:'Newsreader',serif;font-weight:300;font-size:38px;line-height:1.12;color:#8E8578;letter-spacing:-.015em">No buscamos hacer conciertos más espectaculares.</div>
+        <div style="font-family:'Newsreader',serif;font-weight:400;font-style:italic;font-size:42px;line-height:1.1;color:#F2EDE6;letter-spacing:-.02em;margin-top:22px">Buscamos construir experiencias más significativas.</div>
+        <div style="width:56px;height:2px;background:#F5C77E;margin-top:34px"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:30px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#9A9083">scroll bloqueado 900 ms · el indicador de puntos se oculta aquí</div>
+      </div>
+    </div>
+
+    <!-- ============ 6.4 PRODUCCIONES ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.4 · PRODUCCIONES · índice + acto</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Cambio el acordeón por actos a sangre; el índice tipográfico queda arriba como mapa. Con tres producciones completas, las otras tres entran como “en repertorio”: póster y ficha, sin galería.</div></div>
+      <div style="width:390px;background:#14100D;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:70px 22px 26px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C77E">Catálogo</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-stretch:expanded;font-size:48px;line-height:.87;letter-spacing:-.035em;color:#F2EDE6;margin-top:14px">Producciones<br>artísticas</div>
+        </div>
+        <div style="padding:0 22px 40px">
+          <sc-for list="{{ producciones }}" as="p" hint-placeholder-count="6">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid rgba(242,237,230,.18);padding:15px 0;min-height:44px">
+              <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:20px;line-height:1.15;letter-spacing:-.01em;color:{{ p.color }}">{{ p.name }}</div>
+              <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578;white-space:nowrap">{{ p.state }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="height:470px;background:repeating-linear-gradient(112deg,#2E241B 0 11px,#221A13 11px 22px);position:relative;display:flex;align-items:flex-end">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7A7064;text-align:center;line-height:1.7">PÓSTER 4:5 · CONSAGRACIÓN<br>propio, no recorte de galería</div>
+          <div style="position:relative;width:100%;padding:24px 22px;background:linear-gradient(to top,rgba(13,10,8,.94),rgba(13,10,8,0))">
+            <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#F5C77E">Acto 01 · 2023</div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:40px;line-height:.92;letter-spacing:-.03em;color:#F2EDE6;margin-top:10px">Consagración<br>de la Primavera</div>
+          </div>
+        </div>
+
+        <div style="padding:26px 22px 0">
+          <p style="font-family:'Newsreader',serif;font-weight:300;font-size:20px;line-height:1.5;color:#EDE5DA;margin:0">Stravinsky llevado al cuerpo: la partitura del rito se reparte entre orquesta, danza contemporánea y un diseño de luz que trata el escenario como un territorio que se agota.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#9A9083;margin-top:12px">↑ sinopsis de muestra, la escribe el equipo artístico</div>
+        </div>
+
+        <div style="margin:26px 22px 0;border:1px solid rgba(242,237,230,.2);position:relative">
+          <div style="height:196px;background:repeating-linear-gradient(112deg,#2A211A 0 11px,#1F1812 11px 22px);display:flex;align-items:center;justify-content:center">
+            <div style="width:62px;height:62px;border-radius:50%;border:1.5px solid #F2EDE6;display:flex;align-items:center;justify-content:center;font-size:20px;color:#F2EDE6">▶</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px;gap:10px">
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#CFC5B8">Teaser · 2:14</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;color:#8E8578">póster propio · iframe solo al clic</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:26px 22px 0">
+          <div style="aspect-ratio:1;background:repeating-linear-gradient(112deg,#2A211A 0 8px,#1F1812 8px 16px)"></div>
+          <div style="aspect-ratio:1;background:repeating-linear-gradient(112deg,#2A211A 0 8px,#1F1812 8px 16px)"></div>
+          <div style="aspect-ratio:1;background:repeating-linear-gradient(112deg,#2A211A 0 8px,#1F1812 8px 16px)"></div>
+          <div style="aspect-ratio:1;background:repeating-linear-gradient(112deg,#2A211A 0 8px,#1F1812 8px 16px)"></div>
+          <div style="aspect-ratio:1;background:repeating-linear-gradient(112deg,#2A211A 0 8px,#1F1812 8px 16px)"></div>
+          <div style="aspect-ratio:1;background:#1A1510;display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-weight:600;font-size:13px;color:#F5C77E">+7</div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#9A9083;padding:10px 22px 0">galería 8–12 fotos · abre en lightbox</div>
+
+        <div style="margin:26px 0 0;border-top:1px solid rgba(242,237,230,.14);padding:24px 22px 64px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8E8578;margin-bottom:14px">Ficha técnica</div>
+          <sc-for list="{{ ficha }}" as="f" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:104px 1fr;gap:12px;border-bottom:1px solid rgba(242,237,230,.1);padding:11px 0">
+              <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8E8578">{{ f.k }}</div>
+              <div style="font-family:'Archivo',sans-serif;font-weight:400;font-size:15px;line-height:1.4;color:#EDE5DA">{{ f.v }}</div>
+            </div>
+          </sc-for>
+          <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#14100D;background:#F5C77E;display:inline-block;padding:15px 20px;margin-top:22px">Solicitar dossier técnico →</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.4b LIGHTBOX ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.4b · LIGHTBOX</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Navegable con flechas y teclado, foco visible, cierre con Esc. El crédito del fotógrafo es obligatorio: material de cuatro años y muchos autores.</div></div>
+      <div style="width:390px;height:844px;background:#0A0806;display:flex;flex-direction:column;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 20px">
+          <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578">Consagración · 04 / 12</div>
+          <div style="width:44px;height:44px;border:1px solid rgba(242,237,230,.4);display:flex;align-items:center;justify-content:center;color:#F2EDE6;font-size:15px">✕</div>
+        </div>
+        <div style="flex:1;margin:0 0;background:repeating-linear-gradient(112deg,#221A13 0 11px,#181209 11px 22px);display:flex;align-items:center;justify-content:center;position:relative">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7A7064">FOTO EN TAMAÑO COMPLETO</div>
+          <div style="position:absolute;left:14px;width:44px;height:44px;border-radius:50%;background:rgba(242,237,230,.12);display:flex;align-items:center;justify-content:center;color:#F2EDE6">‹</div>
+          <div style="position:absolute;right:14px;width:44px;height:44px;border-radius:50%;background:rgba(242,237,230,.12);display:flex;align-items:center;justify-content:center;color:#F2EDE6">›</div>
+        </div>
+        <div style="padding:18px 20px 26px">
+          <div style="font-family:'Newsreader',serif;font-weight:300;font-size:17.5px;line-height:1.45;color:#CFC5B8">Rito final. Teatro Mayor Julio Mario Santo Domingo, Bogotá.</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#9A9083;margin-top:9px">© FOTÓGRAFO · 2023 · CAMPO OBLIGATORIO EN CMS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.5 COLABORACIONES ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.5 · COLABORACIONES</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">El testimonio es la pieza, no una quote-card: serif grande, sin comillas decorativas, sin tarjeta. Con un solo testimonio confirmado, el resto se sostiene como muro de nombres.</div></div>
+      <div style="width:390px;background:#F2EDE6;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:70px 22px 30px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B4703A">Colaboraciones</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:44px;line-height:.9;letter-spacing:-.03em;color:#14100D;margin-top:14px">Artistas que han resonado con La Joven</div>
+        </div>
+        <div style="height:330px;background:repeating-linear-gradient(112deg,#DDD3C4 0 11px,#D3C8B7 11px 22px);display:flex;align-items:center;justify-content:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8A8177;text-align:center;line-height:1.7">RETRATO 4:5 · ORQUESTA EN ENSAYO<br>con el director, gesto real</div>
+        </div>
+        <div style="padding:30px 22px 20px">
+          <p style="font-family:'Newsreader',serif;font-weight:300;font-size:25px;line-height:1.32;letter-spacing:-.01em;color:#14100D;margin:0">Con la Filarmónica Joven de Colombia puedo entregarme al 100 %, porque lo que recibo a cambio no es solo música: es alegría, risas, concentración y la entrega de todos estos jóvenes. <em style="font-style:italic">¡Es una experiencia bellísima!</em></p>
+          <div style="display:flex;gap:12px;align-items:baseline;margin-top:22px;border-top:1px solid #C9BFB1;padding-top:14px">
+            <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:18px;color:#14100D">Andrés Orozco-Estrada</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6B6157">Director principal invitado</div>
+          </div>
+        </div>
+        <div style="padding:26px 22px 0">
+          <sc-for list="{{ categorias }}" as="c" hint-placeholder-count="5">
+            <div style="border-top:1px solid #C9BFB1;padding:17px 0;min-height:44px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.01em;color:#14100D">{{ c.name }}</div>
+                <div style="display:flex;gap:10px;align-items:baseline"><span style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.12em;color:#8A8177">{{ c.count }}</span><span style="font-family:'Archivo',sans-serif;font-size:15px;color:#B4703A">{{ c.sign }}</span></div>
+              </div>
+              <div style="font-family:'Newsreader',serif;font-size:17px;line-height:1.5;color:#3A322B;margin-top:{{ c.gap }}">{{ c.names }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="padding:30px 22px 64px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#6B6157;line-height:1.7">un solo testimonio confirmado hoy · con tres o cuatro más, esta sección alterna retrato + voz en vez de muro de nombres</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.6 TRAYECTORIA ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.6 · TRAYECTORIA E IMPACTO</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Las cifras entran pequeñas y en fila; el peso tipográfico se lo lleva la lista de salas, que es el argumento real ante un programador. Sin acordeón.</div></div>
+      <div style="width:390px;background:#14100D;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:70px 22px 26px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C77E">16 años</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:46px;line-height:.9;letter-spacing:-.03em;color:#F2EDE6;margin-top:14px">Una historia que también puede medirse</div>
+        </div>
+        <div style="padding:0 22px 34px">
+          <sc-for list="{{ cifras }}" as="c" hint-placeholder-count="7">
+            <div style="display:flex;gap:14px;align-items:baseline;border-bottom:1px solid rgba(242,237,230,.12);padding:12px 0">
+              <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.02em;color:#F5C77E;min-width:78px">{{ c.n }}</div>
+              <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#CFC5B8">{{ c.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="border-top:1px solid rgba(242,237,230,.14);padding:34px 22px 20px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8E8578">Hemos tocado aquí</div>
+        </div>
+        <div style="padding:0 22px 70px">
+          <sc-for list="{{ salas }}" as="s" hint-placeholder-count="18">
+            <div style="padding:9px 0">
+              <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:27px;line-height:1;letter-spacing:-.025em;color:#F2EDE6">{{ s.hall }}</div>
+              <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8E8578;margin-top:4px">{{ s.city }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.7 CREANDO LAZOS ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.7 · #LAJOVEN CREANDO LAZOS</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Lo saco del negro: aquí la luz es natural y el tono cambia de sala a territorio. Se lee como extensión de la práctica artística, no como RSE: primero la voz de un músico, después el indicador.</div></div>
+      <div style="width:390px;background:#EDE7DC;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:70px 22px 26px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#186E68">#LaJoven Creando Lazos</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:44px;line-height:.9;letter-spacing:-.03em;color:#14100D;margin-top:14px">Nuestra experiencia no termina cuando baja el telón</div>
+        </div>
+        <div style="height:300px;background:repeating-linear-gradient(112deg,#D9D1C3 0 11px,#CFC6B6 11px 22px);display:flex;align-items:center;justify-content:center">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8A8177;text-align:center;line-height:1.7">FOTO 3:2 · TERRITORIO, LUZ NATURAL<br>músico enseñando · sin rostro de menores</div>
+        </div>
+        <div style="padding:28px 22px 0">
+          <p style="font-family:'Newsreader',serif;font-weight:300;font-size:23px;line-height:1.4;color:#14100D;margin:0">Los mismos cien músicos que tocan en Hamburgo dan clase en La Guajira. No es un programa paralelo: es la misma práctica, en otra sala.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#6B6157;margin-top:12px">↑ reemplazar por testimonio real de un músico: es lo que salva la sección del tono RSE</div>
+        </div>
+        <div style="padding:30px 22px 0">
+          <sc-for list="{{ lazos }}" as="l" hint-placeholder-count="4">
+            <div style="border-top:1px solid #C9BFB1;padding:16px 0">
+              <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#186E68">{{ l.k }}</div>
+              <div style="font-family:'Newsreader',serif;font-size:18px;line-height:1.5;color:#3A322B;margin-top:7px">{{ l.v }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="padding:26px 22px 64px">
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ territorios }}" as="t" hint-placeholder-count="6">
+              <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.06em;border:1px solid #14100D;padding:9px 12px;color:#14100D">{{ t.name }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.8 AGENDA ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.8 · AGENDA</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Sin fechas confirmadas todavía, la vista a dos años arrancaría vacía. Diseño el mismo componente en dos estados: próximas presentaciones arriba, giras pasadas como registro. 100 % informativa, botones a terceros.</div></div>
+      <div style="width:390px;background:#14100D;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:70px 22px 22px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C77E">Agenda 2026 — 2028</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:46px;line-height:.9;letter-spacing:-.03em;color:#F2EDE6;margin-top:14px">Dónde estaremos</div>
+          <div style="display:flex;gap:8px;margin-top:22px">
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;background:#F2EDE6;color:#14100D;padding:11px 14px">Próximas</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(242,237,230,.4);color:#CFC5B8;padding:11px 14px">Pasadas</div>
+          </div>
+        </div>
+        <div style="padding:0 22px 22px">
+          <sc-for list="{{ agenda }}" as="e" hint-placeholder-count="4">
+            <div style="border-top:1px solid rgba(242,237,230,.14);padding:18px 0">
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+                <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#F5C77E">{{ e.date }}</div>
+                <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:{{ e.stateColor }};border:1px solid currentColor;padding:5px 8px">{{ e.state }}</div>
+              </div>
+              <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:23px;line-height:1.1;letter-spacing:-.02em;color:#F2EDE6;margin-top:10px">{{ e.place }}</div>
+              <div style="font-family:'Newsreader',serif;font-size:17px;color:#CFC5B8;margin-top:5px">{{ e.city }}</div>
+              <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#F5C77E;margin-top:14px;min-height:44px;display:flex;align-items:center">{{ e.cta }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="border-top:1px solid rgba(242,237,230,.14);padding:24px 22px 64px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#9A9083;line-height:1.7">estado vacío: si no hay fechas publicables, la sección muestra “giras pasadas” y un enlace a contacto en vez de una lista en blanco</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.9 ORGANIZACION ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.9 · LA ORGANIZACIÓN DETRÁS</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">El único lugar donde la marca madre manda: fondo claro, logo completo, naranja #FF671B y el botón a la Fundación. Es el corte deliberado del tono de artista.</div></div>
+      <div style="width:390px;background:#FFFFFF;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:70px 22px 0">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#FF671B">La organización detrás de la orquesta</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:38px;line-height:.95;letter-spacing:-.025em;color:#14100D;margin-top:16px">Desarrollamos talento para construir país</div>
+          <p style="font-family:'Newsreader',serif;font-weight:300;font-size:19.5px;line-height:1.5;color:#3A322B;margin:18px 0 0">La Filarmónica Joven de Colombia es el programa de música de la Fundación Bolívar Davivienda: la única orquesta del mundo sostenida por un grupo privado.</p>
+        </div>
+        <div style="margin:30px 22px 0;border:1px dashed #C9BFB1;height:118px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8A8177;text-align:center;line-height:1.7">SVG LOCKUP COMPLETO<br>FJC + Bolívar Davivienda · área de reserva = “B”</div>
+        <div style="padding:26px 22px 70px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;background:#FF671B;color:#FFFFFF;display:inline-flex;align-items:center;min-height:48px;padding:0 22px">Conozca más sobre la Fundación →</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#8A8177;margin-top:16px;line-height:1.7">naranja institucional usado solo aquí y en el pie · enlace externo, nueva pestaña</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.10 CONTACTO ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.10 · CONTACTO</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">La categoría del asunto es lo primero, no lo último: define el enrutamiento al staff y le dice al programador que hay alguien esperando su correo. Campos de 48 px, foco visible en turquesa.</div></div>
+      <div style="width:390px;background:#14100D;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:70px 22px 30px">
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-stretch:expanded;font-size:44px;line-height:.88;letter-spacing:-.035em;color:#F2EDE6">Llevemos experiencias significativas a nuevos escenarios</div>
+        </div>
+        <div style="padding:0 22px 20px">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#F5C77E;margin-bottom:12px">¿Sobre qué nos escribe?</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.06em;background:#F5C77E;color:#14100D;padding:13px 15px">Programación artística</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.06em;border:1px solid rgba(242,237,230,.4);color:#CFC5B8;padding:13px 15px">Prensa</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.06em;border:1px solid rgba(242,237,230,.4);color:#CFC5B8;padding:13px 15px">Alianzas</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.06em;border:1px solid rgba(242,237,230,.4);color:#CFC5B8;padding:13px 15px">Información general</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#9A9083;margin-top:12px">→ enruta a programacion@ · prensa@ · alianzas@ · info@ (pendiente de confirmar)</div>
+        </div>
+        <div style="padding:14px 22px 0;display:flex;flex-direction:column;gap:16px">
+          <div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578">Nombre y apellido</div>
+            <div style="border-bottom:1px solid rgba(242,237,230,.35);height:48px"></div>
+          </div>
+          <div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#2E8C86">Correo electrónico</div>
+            <div style="border-bottom:2px solid #2E8C86;height:48px;display:flex;align-items:center;font-family:'Archivo',sans-serif;font-size:16px;color:#F2EDE6">programacion@</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#2E8C86;margin-top:6px">estado foco · outline visible + 2 px de subrayado</div>
+          </div>
+          <div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578">Mensaje</div>
+            <div style="border-bottom:1px solid rgba(242,237,230,.35);height:104px"></div>
+          </div>
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;background:#F2EDE6;color:#14100D;min-height:52px;display:flex;align-items:center;justify-content:center;margin-top:8px">Enviar</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#9A9083;padding-bottom:64px;line-height:1.7">antispam sin captcha visible · confirmación en la misma pantalla, no página nueva</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6.11 CIERRE ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">6.11 · CIERRE + PIE</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">Suscripción, redes y el Media Center como enlace de pie (abre panel). Spotify y podcast quedan marcados: si están vacíos, salen.</div></div>
+      <div style="width:390px;background:#0D0A08;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="padding:70px 22px 26px">
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:44px;line-height:.9;letter-spacing:-.03em;color:#F2EDE6">La conversación continúa</div>
+          <p style="font-family:'Newsreader',serif;font-weight:300;font-size:19.5px;line-height:1.5;color:#CFC5B8;margin:16px 0 0">La Joven News: dos correos al año, temporada y giras.</p>
+        </div>
+        <div style="padding:0 22px 0;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:12px">
+            <div style="flex:1"><div style="font-family:'Jost',sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578">Nombre</div><div style="border-bottom:1px solid rgba(242,237,230,.3);height:46px"></div></div>
+            <div style="flex:1"><div style="font-family:'Jost',sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578">Apellido</div><div style="border-bottom:1px solid rgba(242,237,230,.3);height:46px"></div></div>
+          </div>
+          <div><div style="font-family:'Jost',sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578">Correo</div><div style="border-bottom:1px solid rgba(242,237,230,.3);height:46px"></div></div>
+          <div><div style="font-family:'Jost',sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578">País</div><div style="border-bottom:1px solid rgba(242,237,230,.3);height:46px"></div></div>
+          <div style="display:flex;gap:12px;align-items:flex-start;margin-top:6px">
+            <div style="width:22px;height:22px;border:1.5px solid #8E8578;flex:none;margin-top:2px"></div>
+            <div style="font-family:'Newsreader',serif;font-size:16px;line-height:1.45;color:#CFC5B8">Autorizo el tratamiento de mis datos conforme a la <span style="color:#F5C77E;border-bottom:1px solid rgba(245,199,126,.5)">política de la Fundación Bolívar Davivienda</span>.</div>
+          </div>
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;background:#F5C77E;color:#14100D;min-height:52px;display:flex;align-items:center;justify-content:center;margin-top:8px">Suscribirme</div>
+        </div>
+        <div style="margin-top:44px;border-top:1px solid rgba(242,237,230,.14);padding:26px 22px">
+          <div style="display:flex;flex-wrap:wrap;gap:10px 18px">
+            <sc-for list="{{ redes }}" as="r" hint-placeholder-count="6">
+              <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.08em;color:{{ r.color }}">{{ r.name }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(242,237,230,.14);padding:22px;display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px">
+            <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#F2EDE6">Media Center</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#8E8578">fotos · logos · press kit · abre panel</div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center;border-top:1px solid rgba(242,237,230,.1);padding-top:16px">
+            <div style="border:1px dashed rgba(242,237,230,.3);padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;color:#8E8578;text-align:center;line-height:1.6">SVG LOCKUP<br>FJC + FBD</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;color:#9A9083;line-height:1.8">aquí sí el lockup completo<br>© 2026 · política de datos · ES EN FR DE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SISTEMA: MENU Y MEDIA CENTER ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">SISTEMA · MENÚ E IDIOMA</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">El hamburguesa solo hace anclas del mismo scroll: once destinos, ninguna subpágina. Los nombres se numeran como movimientos.</div></div>
+      <div style="width:390px;height:844px;background:#14100D;display:flex;flex-direction:column;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#9A9083;border:1px dashed rgba(242,237,230,.35);padding:8px 10px">SVG ALA</div>
+          <div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#F2EDE6;font-size:16px">✕</div>
+        </div>
+        <div style="padding:20px 22px 0;flex:1;display:flex;flex-direction:column;gap:2px">
+          <sc-for list="{{ anclas }}" as="a" hint-placeholder-count="11">
+            <div style="display:flex;gap:14px;align-items:baseline;padding:9px 0;min-height:44px">
+              <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.1em;color:#8E8578;min-width:22px">{{ a.n }}</div>
+              <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:25px;line-height:1.05;letter-spacing:-.02em;color:#F2EDE6">{{ a.name }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="border-top:1px solid rgba(242,237,230,.14);padding:22px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div style="display:flex;gap:6px">
+            <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;background:#F2EDE6;color:#14100D;padding:11px 12px">ES</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em;color:#CFC5B8;padding:11px 12px">EN</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em;color:#CFC5B8;padding:11px 12px">FR</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em;color:#CFC5B8;padding:11px 12px">DE</div>
+          </div>
+          <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.08em;color:#F5C77E">Media Center</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ HERO EN ALEMAN ============ -->
+    <div style="display:flex;flex-direction:column;gap:12px;width:390px">
+      <div><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#B4703A">PRUEBA DE IDIOMA · DE</span><div style="font-family:'Newsreader',serif;font-size:15px;line-height:1.45;color:#3A322B;margin-top:3px">El mismo hero y el mismo índice de producciones en alemán, sin cambiar cuerpos: “Jugendphilharmonie Kolumbiens” a 27 caracteres por línea y las etiquetas con holgura de +35 %.</div></div>
+      <div style="width:390px;background:#14100D;box-shadow:0 30px 70px -40px rgba(20,16,13,.75)">
+        <div style="height:560px;position:relative;overflow:hidden;display:flex;flex-direction:column">
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(112deg,#241C16 0 11px,#1B1510 11px 22px)"></div>
+          <div style="position:absolute;inset:0;background:radial-gradient(130% 62% at 72% 4%,rgba(245,199,126,.26) 0%,rgba(20,16,13,0) 62%)"></div>
+          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:20px 20px 0;gap:10px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#9A9083;border:1px dashed rgba(242,237,230,.35);padding:8px 10px">SVG ALA</div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.16em;color:#F5C77E">DE</span>
+              <span style="font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.06em;color:#F2EDE6;border:1px solid rgba(242,237,230,.5);border-radius:999px;padding:11px 15px">Kontakt</span>
+            </div>
+          </div>
+          <div style="position:relative;margin-top:auto;padding:0 20px 30px">
+            <div style="font-family:'Archivo',sans-serif;font-weight:800;font-stretch:expanded;font-size:74px;line-height:.84;letter-spacing:-.04em;color:#F2EDE6">LA<br>JOVEN</div>
+            <div style="width:40px;height:2px;background:#F5C77E;margin:18px 0 14px"></div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:500;font-size:15px;line-height:1.35;color:#E3DACB;max-width:27ch">Jugendphilharmonie Kolumbiens · Orchester der Fundación Bolívar Davivienda</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9A9083;margin-top:26px">Weiter ↓</div>
+          </div>
+        </div>
+        <div style="padding:40px 22px 26px;border-top:1px solid rgba(242,237,230,.14)">
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F5C77E">Katalog</div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:44px;line-height:.87;letter-spacing:-.035em;color:#F2EDE6;margin-top:14px">Künstlerische<br>Produktionen</div>
+        </div>
+        <div style="padding:0 22px 50px">
+          <sc-for list="{{ produccionesDe }}" as="p" hint-placeholder-count="6">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid rgba(242,237,230,.18);padding:15px 0">
+              <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:20px;line-height:1.15;letter-spacing:-.01em;color:{{ p.color }}">{{ p.name }}</div>
+              <div style="font-family:'Jost',sans-serif;font-weight:500;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8E8578;white-space:nowrap">{{ p.state }}</div>
+            </div>
+          </sc-for>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#9A9083;margin-top:18px;line-height:1.7">“Im Repertoire” es 5 caracteres más largo que “En repertorio”: por eso la etiqueta de estado nunca comparte línea con el título en mobile, ni en español.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:56px;border-top:1.5px solid #14100D;padding-top:16px;max-width:1400px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6157">Siguiente: desktop (misma retícula, tres columnas en 6.4 y 6.6) + sistema de componentes con estados</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6157">Pendiente de ustedes: SVG del ala, testimonios, correos del staff</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ES&quot;,&quot;EN&quot;,&quot;FR&quot;,&quot;DE&quot;],&quot;default&quot;:&quot;ES&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Idioma&quot;},&quot;showNotes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Documento&quot;}}">
+class Component extends DCLogic {
+  assumptions() {
+    return [
+      { k: 'Territorio', v: 'Voy con A “Sala Oscura”, un gesto del C solo en la frase de 6.3 y el B reservado para press kit.' },
+      { k: 'Sansation', v: 'Reemplazada por Jost en etiquetas, fichas y datos: geométrica humanista, misma función, licencia libre. Archivo y Newsreader quedan igual.' },
+      { k: 'Producciones', v: 'Tres actos completos con galería y teaser; las otras tres entran como “en repertorio” con póster y ficha. Escala sin verse vacía.' },
+      { k: 'Testimonios', v: 'Diseño con el de Orozco-Estrada como única pieza editorial y muro de nombres para el resto. Con tres más, la sección alterna retrato y voz.' },
+      { k: 'Agenda', v: 'Sin fechas confirmadas, la vista arranca en “próximas presentaciones” y cae a “giras pasadas” como estado por defecto.' },
+      { k: 'Menores de edad', v: 'Asumo lo más restrictivo: en territorio, planos generales y de espalda, sin rostro identificable. Si hay autorizaciones, se abre.' },
+      { k: 'Infraestructura', v: 'Diseño agnóstico sobre estático + CDN, YouTube en diferido y CMS headless. La recomendación de stack va en Entrega 3.' },
+      { k: 'Material', v: 'Sin assets, todo lugar de imagen es marcador rayado con su especificación escrita encima. Nada de fotos de relleno.' }
+    ];
+  }
+
+  diferencial() {
+    return [
+      { n: '01', title: 'Narrativa escénica', shot: 'escenografía visible', body: 'Cada producción construye un universo propio a partir de conceptos, dramaturgia y recorridos emocionales.' },
+      { n: '02', title: 'Movimiento y lenguaje corporal', shot: 'danza o circo con músicos', body: 'El cuerpo entra en la partitura: danza contemporánea, circo y títeres comparten escena con la orquesta.' },
+      { n: '03', title: 'Diseño visual e iluminación', shot: 'haz de luz protagonista', body: 'La luz no acompaña la música, la interpreta. Cada montaje tiene su propio diseño visual.' },
+      { n: '04', title: 'Una mirada contemporánea', shot: 'puesta no convencional', body: 'Repertorio sinfónico leído desde el presente, por músicos de entre 16 y 24 años de todas las regiones del país.' }
+    ];
+  }
+
+  producciones() {
+    const full = '#F2EDE6', soft = '#9A9083';
+    return [
+      { name: 'Consagración de la Primavera', state: 'Acto completo', color: full },
+      { name: 'Cuerpos en Movimiento', state: 'Acto completo', color: full },
+      { name: 'Pájaro de Fuego', state: 'Acto completo', color: full },
+      { name: 'Petrushka', state: 'En repertorio', color: soft },
+      { name: '5ta de Shostakovich', state: 'En repertorio', color: soft },
+      { name: 'Equilibrios Sonoros', state: 'En repertorio', color: soft }
+    ];
+  }
+
+  produccionesDe() {
+    const full = '#F2EDE6', soft = '#9A9083';
+    return [
+      { name: 'Le Sacre du printemps', state: 'Vollständiger Akt', color: full },
+      { name: 'Körper in Bewegung', state: 'Vollständiger Akt', color: full },
+      { name: 'Der Feuervogel', state: 'Vollständiger Akt', color: full },
+      { name: 'Petruschka', state: 'Im Repertoire', color: soft },
+      { name: '5. Sinfonie Schostakowitsch', state: 'Im Repertoire', color: soft },
+      { name: 'Klanggleichgewichte', state: 'Im Repertoire', color: soft }
+    ];
+  }
+
+  ficha() {
+    return [
+      { k: 'Obra', v: 'Igor Stravinsky · Le Sacre du printemps' },
+      { k: 'Dirección', v: 'Andrés Orozco-Estrada' },
+      { k: 'Formato', v: 'Orquesta sinfónica (100) + 8 bailarines' },
+      { k: 'Duración', v: '75 min sin intermedio' },
+      { k: 'Requerimientos', v: 'Escenario 14 × 12 m · parrilla de luces · dossier técnico' }
+    ];
+  }
+
+  categorias() {
+    return [
+      { name: 'Directores orquestales', count: '22', sign: '−', gap: '12px', names: 'Andrés Orozco-Estrada · Carlos Miguel Prieto · Matthew Hazelwood · Carlos Izcaray · Reinaldo Alessandrini · Adrián Chamorro · Juan Felipe Molano · Lawrence Renes · Paolo Bortolameolli · Rafael Payare · Tatiana Pérez-Hernández · Lina González-Granados · Claudio Cruz · Juan Pablo Valencia · Carlos Ágreda · Andrew Gourlay · Alejandro Posada · David William Holland · Ricardo Jaramillo · Carlos Andrés Botero · Germán Gutiérrez · David Greilsammer' },
+      { name: 'Solistas', count: '41', sign: '+', gap: '0', names: '' },
+      { name: 'Artistas populares', count: '03', sign: '+', gap: '0', names: '' },
+      { name: 'Compositores', count: '—', sign: '+', gap: '0', names: '' },
+      { name: 'Artistas interdisciplinarios', count: '—', sign: '+', gap: '0', names: '' }
+    ];
+  }
+
+  cifras() {
+    return [
+      { n: '8', label: 'Giras internacionales' },
+      { n: '22', label: 'Giras nacionales' },
+      { n: '700+', label: 'Jóvenes músicos beneficiados' },
+      { n: '210+', label: 'Conciertos' },
+      { n: '25', label: 'Directores' },
+      { n: '41', label: 'Solistas' },
+      { n: '3', label: 'Artistas populares' }
+    ];
+  }
+
+  salas() {
+    return [
+      { hall: 'Elbphilharmonie', city: 'Hamburgo' },
+      { hall: 'Berliner Philharmonie', city: 'Berlín' },
+      { hall: 'Musikverein', city: 'Viena' },
+      { hall: 'Concertgebouw', city: 'Ámsterdam' },
+      { hall: 'Philharmonie de Paris', city: 'París' },
+      { hall: 'Alte Oper', city: 'Frankfurt' },
+      { hall: 'Konzerthaus', city: 'Berlín' },
+      { hall: 'Konzerthaus', city: 'Dortmund' },
+      { hall: 'Konzerthaus', city: 'Friburgo' },
+      { hall: 'Philharmonie', city: 'Colonia' },
+      { hall: 'Tonhalle', city: 'Zúrich' },
+      { hall: 'Casino Bern', city: 'Berna' },
+      { hall: 'Sala São Paulo', city: 'São Paulo' },
+      { hall: 'Meyerson Hall', city: 'Dallas' },
+      { hall: 'Jones Hall', city: 'Houston' },
+      { hall: 'New World Center', city: 'Miami' },
+      { hall: 'Teatro Colón', city: 'Bogotá' },
+      { hall: 'Teatro Santander', city: 'Bucaramanga' }
+    ];
+  }
+
+  lazos() {
+    return [
+      { k: 'Metodología', v: 'Los músicos de la orquesta enseñan, acompañan y crean repertorio con las comunidades donde tocan.' },
+      { k: 'Territorios', v: 'De La Guajira al Amazonas, con presencia sostenida y no visitas de una vez.' },
+      { k: 'Indicadores', v: 'Horas de formación, músicos formadores y proyectos locales activos. Cifras al final, nunca de entrada.' },
+      { k: 'Resultados', v: 'Músicos que vuelven a su región como maestros. Ese es el resultado, no el número.' }
+    ];
+  }
+
+  territorios() {
+    return [
+      { name: 'La Guajira' }, { name: 'Amazonas' }, { name: 'Chocó' },
+      { name: 'Santander' }, { name: 'Bolívar' }, { name: 'Nariño' }
+    ];
+  }
+
+  agenda() {
+    return [
+      { date: 'Mar 2027 · 14', place: 'Teatro Nacional', city: 'San José, Costa Rica', state: 'Confirmado', stateColor: '#F5C77E', cta: 'Boletería externa →' },
+      { date: 'Jul 2027', place: 'Gira Francia', city: 'Ciudades por confirmar', state: 'En gestión', stateColor: '#8E8578', cta: 'Escríbanos →' },
+      { date: 'Oct 2027', place: 'Teatro Mayor Julio Mario Santo Domingo', city: 'Bogotá, Colombia', state: 'Confirmado', stateColor: '#F5C77E', cta: 'Boletería externa →' },
+      { date: 'Dic 2027', place: 'Temporada de audiciones', city: 'Convocatoria nacional', state: 'Informativo', stateColor: '#8E8578', cta: 'Ver convocatoria →' }
+    ];
+  }
+
+  redes() {
+    return [
+      { name: 'Instagram', color: '#F2EDE6' },
+      { name: 'TikTok', color: '#F2EDE6' },
+      { name: 'Facebook', color: '#F2EDE6' },
+      { name: 'YouTube', color: '#F2EDE6' },
+      { name: 'Spotify — ¿activo?', color: '#8E8578' },
+      { name: 'Podcast — ¿activo?', color: '#8E8578' }
+    ];
+  }
+
+  anclas() {
+    return [
+      { n: '01', name: 'Quiénes somos' },
+      { n: '02', name: 'El diferencial' },
+      { n: '03', name: 'Producciones' },
+      { n: '04', name: 'Colaboraciones' },
+      { n: '05', name: 'Trayectoria' },
+      { n: '06', name: 'Creando Lazos' },
+      { n: '07', name: 'Agenda' },
+      { n: '08', name: 'La Fundación' },
+      { n: '09', name: 'Contacto' },
+      { n: '10', name: 'La Joven News' },
+      { n: '11', name: 'Media Center' }
+    ];
+  }
+
+  renderVals() {
+    const lang = this.props.heroLang || 'ES';
+    const L = {
+      ES: { sub: 'Filarmónica Joven de Colombia · Orquesta de la Fundación Bolívar Davivienda', contact: 'Contáctenos', scroll: 'Deslice' },
+      EN: { sub: 'Youth Philharmonic of Colombia · Orchestra of the Fundación Bolívar Davivienda', contact: 'Get in touch', scroll: 'Scroll' },
+      FR: { sub: 'Philharmonique des Jeunes de Colombie · Orchestre de la Fundación Bolívar Davivienda', contact: 'Nous contacter', scroll: 'Défiler' },
+      DE: { sub: 'Jugendphilharmonie Kolumbiens · Orchester der Fundación Bolívar Davivienda', contact: 'Kontakt', scroll: 'Weiter' }
+    };
+    const cur = L[lang] || L.ES;
+    return {
+      showNotes: this.props.showNotes !== false,
+      assumptions: this.assumptions(),
+      diferencial: this.diferencial(),
+      producciones: this.producciones(),
+      produccionesDe: this.produccionesDe(),
+      ficha: this.ficha(),
+      categorias: this.categorias(),
+      cifras: this.cifras(),
+      salas: this.salas(),
+      lazos: this.lazos(),
+      territorios: this.territorios(),
+      agenda: this.agenda(),
+      redes: this.redes(),
+      anclas: this.anclas(),
+      langCode: lang,
+      heroSub: cur.sub,
+      contactLabel: cur.contact,
+      scrollHint: cur.scroll
+    };
+  }
+}
+</script>
+</body>
+</html>

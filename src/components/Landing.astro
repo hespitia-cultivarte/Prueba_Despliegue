@@ -1,0 +1,35 @@
+---
+/**
+ * La página entera, en el orden del programa (BRIEF.md). Las cuatro rutas de
+ * idioma renderizan este mismo componente.
+ */
+import Obertura from './sections/Obertura.astro';
+import Quienes from './sections/Quienes.astro';
+import Diferencial from './sections/Diferencial.astro';
+import Intermezzo from './sections/Intermezzo.astro';
+import Producciones from './sections/Producciones.astro';
+import Colaboraciones from './sections/Colaboraciones.astro';
+import Trayectoria from './sections/Trayectoria.astro';
+import Lazos from './sections/Lazos.astro';
+import Agenda from './sections/Agenda.astro';
+import Fundacion from './sections/Fundacion.astro';
+import Bis from './sections/Bis.astro';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<Obertura locale={locale} />
+<Quienes locale={locale} />
+<Diferencial locale={locale} />
+<Intermezzo locale={locale} />
+<Producciones locale={locale} />
+<Colaboraciones locale={locale} />
+<Trayectoria locale={locale} />
+<Lazos locale={locale} />
+<Agenda locale={locale} />
+<Fundacion locale={locale} />
+<Bis locale={locale} />

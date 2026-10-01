@@ -1,0 +1,56 @@
+{
+  "hilary-hahn": {
+    "fuente": "https://commons.wikimedia.org/wiki/File:Bremen-_Hahn21_(cropped).jpg",
+    "autor": "Quincena Musical",
+    "licencia": "CC BY 2.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "hilary-hahn-b": {
+    "fuente": "https://commons.wikimedia.org/wiki/File:Hilary_Hahn_2019.jpg",
+    "autor": "Phineusphoto",
+    "licencia": "CC BY-SA 4.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "rafael-payare": {
+    "fuente": "https://commons.wikimedia.org/wiki/File:Rafael_Payare.jpg",
+    "autor": "Jeangagnon",
+    "licencia": "CC BY-SA 4.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "carlos-miguel-prieto": {
+    "fuente": "https://commons.wikimedia.org/wiki/File:Carlos_Miguel_Prieto_FESTIVAL_CENTRO_HISTORICO.jpg",
+    "autor": "Octavio Nava/Secretaría de Cultura  de la Ciudad de México",
+    "licencia": "CC BY-SA 2.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "andres-cepeda": {
+    "fuente": "https://commons.wikimedia.org/wiki/File:AndresCepeda2018TVA.jpg",
+    "autor": "SonyCOL",
+    "licencia": "CC BY-SA 4.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "morat": {
+    "fuente": "https://commons.wikimedia.org/wiki/File:Morat_en_concierto.jpg",
+    "autor": "Andrea Herrera / Secretaría de Cultura de la Ciudad de México",
+    "licencia": "CC BY 2.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "diego-torres": {
+    "fuente": "https://commons.wikimedia.org/wiki/File:Copihue_de_Oro_2018_-_Diego_Torres_-_02.jpg",
+    "autor": "Carlos Figueroa Rojas",
+    "licencia": "CC BY-SA 4.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "diego-torres-b": {
+    "fuente": "https://commons.wikimedia.org/wiki/File:Diego_Torres_2021.jpg",
+    "autor": "Tony Dandrades",
+    "licencia": "CC BY 3.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by/3.0"
+  },
+  "orozco-commons": {
+    "fuente": "https://commons.wikimedia.org/wiki/File:2010_Andr%C3%A9s_Orozco-Estrada_(18061066049).jpg",
+    "autor": "Franz Johann Morgenbesser from Vienna, Austria",
+    "licencia": "CC BY-SA 2.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  }
+}

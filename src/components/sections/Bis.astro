@@ -1,0 +1,110 @@
+---
+/**
+ * XI · Bis (Finale). La orquesta saluda y la gira se celebra (montaje mudo del
+ * making of 2023, scripts/videos.py), y el contacto como el pedido del bis. El
+ * cierre resuelve y se queda: nada se desvanece al final. El video se
+ * enmascara lejos del texto en vez de oscurecerlo entero.
+ *
+ * El formulario NO envía todavía: faltan los correos del equipo por categoría
+ * y el lugar donde vivirá la función de envío. Se declara en la propia página,
+ * nunca se simula un "enviado". method="post" para que, sin JS, los datos no
+ * terminen en la URL.
+ */
+import Bucle from '../media/Bucle.astro';
+import logo from '../../assets/marca/lajoven.svg?raw';
+import { getContenido } from '../../i18n/contenido';
+import { locales, nombresLocale, rutaLocalizada, type Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const C = getContenido(locale);
+const c = C.contacto;
+const m = C.movimientos[10]!;
+---
+
+<section
+  id={m.id}
+  class="bis"
+  data-movimiento={m.id}
+  data-mov-numero={m.numero}
+  data-mov-nombre={m.nombre}
+>
+  <figure class="bis__foto" aria-hidden="true">
+    <Bucle clip="bis" />
+  </figure>
+
+  <div class="sc-wrap bis__rejilla">
+    <div class="bis__intro" data-sc-in>
+      <h2 class="titular titular--lg">{c.titulo}</h2>
+      {c.parrafos.map((p) => <p class="voz">{p}</p>)}
+    </div>
+
+    <form class="formulario" method="post" action="/api/contacto" data-formulario data-pendiente={c.pendiente} data-error={c.error} novalidate data-sc-in>
+      <fieldset class="formulario__asuntos">
+        <legend class="antetitulo">{c.asuntoLeyenda}</legend>
+        <div class="chips">
+          {
+            c.asuntos.map((a, i) => (
+              <label class="chip">
+                <input type="radio" name="asunto" value={a} checked={i === 0} />
+                <span>{a}</span>
+              </label>
+            ))
+          }
+        </div>
+      </fieldset>
+      <label class="campo">
+        <span class="campo__etiqueta">{c.campos.nombre}</span>
+        <input type="text" name="nombre" autocomplete="name" required />
+      </label>
+      <label class="campo">
+        <span class="campo__etiqueta">{c.campos.correo}</span>
+        <input type="email" name="correo" autocomplete="email" required />
+      </label>
+      <label class="campo">
+        <span class="campo__etiqueta">{c.campos.mensaje}</span>
+        <textarea name="mensaje" rows="3" required></textarea>
+      </label>
+      <div class="formulario__pie">
+        <button type="submit" class="boton">{c.enviar}</button>
+        <p class="formulario__estado" role="status" aria-live="polite" data-estado></p>
+      </div>
+    </form>
+  </div>
+
+  <footer class="pie sc-wrap">
+    <div class="pie__continua">
+      <p class="antetitulo">{c.continua}</p>
+      <p class="voz voz--suave">{c.continuaTexto}</p>
+    </div>
+    <div class="pie__base">
+      <div class="pie__logo" set:html={logo} />
+      <span class="pie__fbd">{c.fbd}</span>
+      <ul class="pie__idiomas">
+        {locales.map((l) => <li><a href={rutaLocalizada(l)} hreflang={l} aria-current={l === locale ? 'true' : undefined}>{nombresLocale[l]}</a></li>)}
+      </ul>
+      <span class="pie__legal">{c.legal}</span>
+    </div>
+  </footer>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-formulario]');
+  const estado = form?.querySelector<HTMLElement>('[data-estado]');
+  if (form && estado) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        const primero = form.querySelector<HTMLElement>(':invalid');
+        primero?.focus();
+        estado.textContent = form.dataset.error ?? '';
+        estado.dataset.tipo = 'error';
+        return;
+      }
+      estado.textContent = form.dataset.pendiente ?? '';
+      estado.dataset.tipo = 'aviso';
+    });
+  }
+</script>

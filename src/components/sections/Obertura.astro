@@ -1,0 +1,74 @@
+---
+/**
+ * I · Obertura (Maestoso). El hero es el making of de la Gira Europa 2023
+ * (pedido del cliente, 25 sep 2026): un montaje mudo de 18 s en bucle, con la
+ * orquesta tocando de cerca (scripts/videos.py). Encima, de atrás hacia
+ * adelante: neblina cálida (CSS) → video → velos → titular → copia. Cada plano
+ * lee --sc-p del acto y se mueve a su ritmo: la cámara empuja hacia la
+ * orquesta mientras el titular sube más lento que el scroll: todo acompaña
+ * la dirección del dedo. El pin es corto (45vh) para que el primer scroll no
+ * se sienta retenido.
+ *
+ * Dos puertas, ninguna obligatoria: «Escuchar» (la banda sonora, Mandos.astro)
+ * y el making of completo con su propio sonido (Cine.astro).
+ * El hero anterior de cuatro planos sobre una foto (scripts/hero_planes.py)
+ * queda en src/assets/img/hero/ por si se quiere volver a él.
+ */
+import Bucle from '../media/Bucle.astro';
+import Cine from '../media/Cine.astro';
+import { useTranslations, type Locale } from '../../i18n/ui';
+import { getContenido } from '../../i18n/contenido';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const C = getContenido(locale);
+const m = C.movimientos[0]!;
+---
+
+<section
+  id={m.id}
+  class="obertura"
+  data-sc-act="pin"
+  data-sc-span="1.45"
+  data-sc-drift="#14100D"
+  data-movimiento={m.id}
+  data-mov-numero={m.numero}
+  data-mov-nombre={m.nombre}
+>
+  <div class="obertura__stage" data-sc-stage>
+    <div class="obertura__lejano" aria-hidden="true"></div>
+    <Bucle clip="obertura" class="obertura__video" prioridad />
+    <div class="obertura__scrim" aria-hidden="true"></div>
+    <div class="obertura__velo" aria-hidden="true"></div>
+
+    <h1 class="obertura__titulo">
+      <span>LA</span>
+      <span>JOVEN</span>
+    </h1>
+
+    <div class="obertura__copia">
+      <div class="obertura__beat" data-sc-cue="0 0.4 0 0.12">
+        <span class="regla" aria-hidden="true"></span>
+        <p class="obertura__bajada">{t('hero.bajada')}</p>
+        <div class="obertura__puertas">
+          <button type="button" class="puerta puerta--sonido" aria-pressed="false" data-sonido>
+            <span class="mando__ondas" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span data-sonido-estado>{t('sonido.escuchar')}</span>
+          </button>
+          <button type="button" class="puerta" data-cine-abrir>
+            {C.obertura.makingOf} <span class="puerta__dur">9:54</span>
+          </button>
+        </div>
+      </div>
+      <p class="obertura__beat obertura__beat--dos" data-sc-cue="0.36 1 0.12 0.16">
+        {C.obertura.beatDos}
+      </p>
+    </div>
+  </div>
+</section>
+
+<Cine titulo={C.obertura.cineTitulo} cerrar={t('nav.cerrar')} />

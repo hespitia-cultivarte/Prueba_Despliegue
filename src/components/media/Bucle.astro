@@ -1,0 +1,74 @@
+---
+/**
+ * Bucle — montaje mudo de public/media/ (scripts/videos.py). Es imagen en
+ * movimiento, no contenido: sin sonido ni controles propios; el mando
+ * «Pausar videos» (Mandos.astro) los detiene todos (WCAG 2.2.2).
+ *
+ * Nunca arranca solo desde el HTML: sin JS, con movimiento reducido o con
+ * ahorro de datos queda el póster. Solo reproduce mientras está a la vista.
+ * Móvil recibe su propio corte vertical 9:16, no el 16:9 recortado.
+ */
+interface Props {
+  clip: string;
+  class?: string;
+  /** El hero pide sus metadatos de inmediato; el resto espera a acercarse. */
+  prioridad?: boolean;
+}
+const { clip, class: clase, prioridad = false } = Astro.props;
+---
+
+<video
+  class:list={['bucle', clase]}
+  muted
+  loop
+  playsinline
+  disablepictureinpicture
+  preload={prioridad ? 'metadata' : 'none'}
+  poster={`/media/${clip}.jpg`}
+  aria-hidden="true"
+  tabindex="-1"
+  data-bucle
+>
+  <source media="(max-width: 860px)" src={`/media/${clip}-m.mp4`} type="video/mp4" />
+  <source src={`/media/${clip}.mp4`} type="video/mp4" />
+</video>
+
+<script>
+  const quieto =
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    Boolean((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData);
+
+  const videos = Array.from(document.querySelectorAll<HTMLVideoElement>('video[data-bucle]'));
+  const visibles = new Set<HTMLVideoElement>();
+  let pausados = false;
+  try {
+    pausados = localStorage.getItem('lj-videos') === 'pausados';
+  } catch {}
+
+  const actualizar = (v: HTMLVideoElement) => {
+    if (!quieto && !pausados && visibles.has(v)) {
+      if (v.preload !== 'auto') v.preload = 'auto';
+      v.play().catch(() => {});
+    } else if (!v.paused) {
+      v.pause();
+    }
+  };
+
+  const io = new IntersectionObserver(
+    (entradas) => {
+      for (const e of entradas) {
+        const v = e.target as HTMLVideoElement;
+        if (e.isIntersecting) visibles.add(v);
+        else visibles.delete(v);
+        actualizar(v);
+      }
+    },
+    { rootMargin: '25% 0px' },
+  );
+  videos.forEach((v) => io.observe(v));
+
+  document.addEventListener('lj:videos', (e) => {
+    pausados = (e as CustomEvent<{ pausados: boolean }>).detail.pausados;
+    videos.forEach(actualizar);
+  });
+</script>

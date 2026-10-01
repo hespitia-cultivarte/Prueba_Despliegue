@@ -1,0 +1,45 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.cloudflared.log
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# Material crudo del cliente (fotos/videos del Drive, PDFs de trabajo): pesa
+# varios GB y el cliente ya lo tiene en su propio Drive. Lo único que el
+# proyecto necesita de ahí ya está copiado a docs/brief-original/ y a
+# scripts/fuentes/retratos/. Si hace falta reingestar algo (scripts/candles.py,
+# scripts/hero_planes.py, scripts/ingest_photos.py), esta carpeta debe existir
+# en local con el export del Drive, pero nunca se versiona.
+.handoff/
+
+# Making of completo (212 MB): supera el límite de 100 MB de GitHub. Se aloja
+# aparte (YouTube/Vimeo no listado) y se enlaza desde Cine.astro; ver README
+# "Activos pendientes". El póster sí queda versionado (public/media/making-of.jpg).
+public/media/making-of.mp4
+
+# Herramientas internas de desarrollo con IA (no forman parte del proyecto)
+.claude/
+.impeccable/
+.scrollcraft.json
+/scrollcraft/
+AGENTS.md
+CLAUDE.md

@@ -1,0 +1,38 @@
+---
+/**
+ * VIII · Creando Lazos (Moderato). Corte duro a luz de día: suelo claro, acento
+ * turquesa oscuro, sin ámbar (DESIGN.md §4: territorio no es escena). Sin
+ * fotografía: el material entregado no tiene imágenes de territorio, y una foto
+ * de festival haría pasar una cosa por otra. La tipografía sostiene la sección.
+ */
+import { getContenido } from '../../i18n/contenido';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const C = getContenido(locale);
+const l = C.lazos;
+const m = C.movimientos[7]!;
+---
+
+<section
+  id={m.id}
+  class="lazos sc-section suelo-claro"
+  data-suelo="claro"
+  data-movimiento={m.id}
+  data-mov-numero={m.numero}
+  data-mov-nombre={m.nombre}
+>
+  <div class="sc-wrap lazos__rejilla">
+    <div data-sc-in>
+      <p class="antetitulo antetitulo--senal">{l.programa}</p>
+      <h2 class="titular titular--xl">{l.titulo}</h2>
+    </div>
+    <div class="lazos__texto" data-sc-stagger="90" data-sc-in>
+      <p class="lazos__apertura">{l.apertura}</p>
+      {l.parrafos.map((p) => <p class="voz">{p}</p>)}
+    </div>
+  </div>
+</section>

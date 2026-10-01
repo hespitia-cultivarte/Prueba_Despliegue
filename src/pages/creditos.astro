@@ -1,0 +1,42 @@
+---
+/**
+ * Créditos fotográficos. Las licencias Creative Commons (BY, BY-SA) exigen
+ * atribución; por pedido del cliente no va sobre las imágenes sino aquí,
+ * en una página fuera del índice de buscadores, enlazada desde el programa.
+ */
+import registro from '../lib/fotos.json';
+import '../styles/tokens.css';
+import '../styles/landing.css';
+
+type Entrada = { credito: string; fuente?: string; licencia?: string; licenciaUrl?: string };
+const conLicencia = Object.entries(registro as Record<string, Entrada>).filter(([, e]) => e.licencia?.startsWith('CC'));
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Créditos fotográficos · La Joven</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/scrollcraft/scrollcraft.css" />
+  </head>
+  <body>
+    <main class="sc-wrap creditos">
+      <p><a class="enlace-accion" href="/">La Joven</a></p>
+      <h1 class="titular titular--lg">Créditos fotográficos · Photo credits</h1>
+      <ul>
+        {
+          conLicencia.map(([clave, e]) => (
+            <li>
+              <strong>{clave.split('/').pop()}</strong>: {e.credito},{' '}
+              <a href={e.fuente} rel="noopener">Wikimedia Commons</a>,{' '}
+              <a href={e.licenciaUrl} rel="license noopener">{e.licencia}</a>. Recorte y duotono: La Joven.
+            </li>
+          ))
+        }
+      </ul>
+      <p>Demás fotografías: archivo de la Filarmónica Joven de Colombia, Fundación Bolívar Davivienda.</p>
+    </main>
+  </body>
+</html>

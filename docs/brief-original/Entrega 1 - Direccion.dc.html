@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#F2EDE6; color:#14100D; font-family:'Newsreader',Georgia,serif; -webkit-font-smoothing:antialiased; }
+  a { color:#186E68; text-decoration:none; border-bottom:1px solid rgba(24,110,104,.35); }
+  a:hover { color:#0F4A46; border-bottom-color:#0F4A46; }
+  ::selection { background:#F5C77E; color:#14100D; }
+</style>
+</helmet>
+
+<div style="max-width:1080px;margin:0 auto;padding:56px 28px 120px">
+
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:baseline;justify-content:space-between;border-bottom:1.5px solid #14100D;padding-bottom:14px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6B6157">Entrega 1 · Dirección</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6B6157">lajoven.com · antes de diseñar</div>
+  </div>
+
+  <h1 style="font-family:'Archivo',sans-serif;font-weight:800;font-stretch:expanded;font-size:clamp(40px,8vw,88px);line-height:.92;letter-spacing:-.025em;margin:32px 0 0;text-wrap:balance">Una orquesta no se<br>presenta. Se programa.</h1>
+  <p style="font-size:clamp(19px,2.2vw,24px);line-height:1.5;max-width:56ch;margin:22px 0 0;color:#3A322B">Lectura del principio rector, en mi frase: <em style="font-style:italic">La Joven no debe explicar quién es; debe hacer sentir cómo suena su manera de mirar el mundo.</em> La web es la primera función del programa, no el programa de mano. Todo lo que no se pueda defender como decisión escénica —una cifra, un logo, un acordeón— entra después, y entra subordinado.</p>
+
+  <!-- 1 · CONFLICTOS QUE SEÑALO ANTES DE EMPEZAR -->
+  <section style="margin-top:72px">
+    <div style="display:flex;gap:14px;align-items:baseline;border-top:1.5px solid #14100D;padding-top:14px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B4703A">01</span>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">Lo que señalo del brief antes de diseñar</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:34px;margin-top:28px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#B4703A;margin-bottom:8px">Conflicto 1 · manual vs. principio</div>
+        <p style="margin:0;font-size:17.5px;line-height:1.55;color:#3A322B">El manual dice que el logo de La Joven <strong style="font-weight:600">se compone de dos elementos: el logo de la orquesta y el texto “Bolívar Davivienda”</strong>, siempre juntos. En una web de artista, un lockup institucional permanente en el header contradice la sección 3 del brief. <strong style="font-weight:600">Excepción que propongo:</strong> header con el ala sola; el lockup completo aparece a tamaño de firma en el pie y en la sección 6.9, donde la marca madre manda. Necesito que esto lo apruebe marca, no yo.</p>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#B4703A;margin-bottom:8px">Conflicto 2 · tipografía permitida</div>
+        <p style="margin:0;font-size:17.5px;line-height:1.55;color:#3A322B">El manual fija Sansation / Corbel / Calibri. Sansation no existe como webfont con licencia web fiable, y Calibri y Corbel son fuentes de oficina: a escala masiva se leen como un informe. Propongo heredar Sansation solo en su función (etiquetas, fichas, cifras) y desplazar el display a una familia editorial licenciada. Es la excepción más grande que pido.</p>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#B4703A;margin-bottom:8px">Conflicto 3 · el acordeón de producciones</div>
+        <p style="margin:0;font-size:17.5px;line-height:1.55;color:#3A322B">El wireframe del PDF 1 lista las seis producciones como acordeón de texto. Eso es un índice, no un catálogo curatorial. Propongo un cambio: cada producción entra como <strong style="font-weight:600">acto a sangre completa</strong> con su propio póster, y el índice tipográfico se conserva arriba como mapa clicable. Mantengo el orden y el contenido del PDF 1; cambio el mecanismo.</p>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#B4703A;margin-bottom:8px">Conflicto 4 · sin infraestructura</div>
+        <p style="margin:0;font-size:17.5px;line-height:1.55;color:#3A322B">Las notas de la reunión dicen que no hay presupuesto, servidores ni infraestructura, y que el despliegue lo asume tecnología después. Diseñar con video pesado y galerías largas sin saber dónde vive el sitio es el mayor riesgo del proyecto. Mi diseño asume un hosting estático + CDN y YouTube como único origen de video; si cambia, cambian las decisiones de carga.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · TERRITORIOS -->
+  <section style="margin-top:80px">
+    <div style="display:flex;gap:14px;align-items:baseline;border-top:1.5px solid #14100D;padding-top:14px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B4703A">02</span>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">Tres territorios visuales, y el que recomiendo</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:26px;margin-top:30px">
+
+      <div style="background:#14100D;color:#F2EDE6;padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px;min-height:340px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#F5C77E">Territorio A</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:#F5C77E;color:#14100D;padding:4px 8px">Recomendado</span>
+        </div>
+        <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;line-height:.95;letter-spacing:-.02em;margin:0">SALA<br>OSCURA</h3>
+        <p style="margin:0;font-size:16.5px;line-height:1.5;color:#D8CFC2">La página es la sala antes de que suba la luz. Negro tintado cálido, imagen a sangre, un solo haz de luz ámbar y tipografía de escala descomunal que entra como entra el sonido: por bloques. Los reveals por scroll son cambios de luz, no animaciones. El color de marca de la orquesta es la luz de escena, no el naranja corporativo.</p>
+        <p style="margin:auto 0 0;font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.6;color:#8E8578">Por qué: es lo único que un programador europeo no espera de una orquesta juvenil latinoamericana, y sostiene material fotográfico disparejo mejor que cualquier otro sistema: la oscuridad unifica.</p>
+      </div>
+
+      <div style="background:#E7DFD3;padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px;min-height:340px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#8A6A46">Territorio B</span>
+        <h3 style="font-family:'Newsreader',serif;font-weight:400;font-size:36px;line-height:.98;letter-spacing:-.01em;margin:0">Partitura<br><em>anotada</em></h3>
+        <p style="margin:0;font-size:16.5px;line-height:1.5;color:#3A322B">Papel hueso, retícula de programa impreso, numeración de movimientos, serif editorial y foto en blanco y negro con mucho aire. Se siente caro y culto de inmediato.</p>
+        <p style="margin:auto 0 0;font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.6;color:#7A7166">Riesgo: es exactamente el lenguaje de la institución culta europea. Cumple “sobrio”, falla “algo propio que decir”. Lo guardo como sistema del Media Center y del press kit.</p>
+      </div>
+
+      <div style="background:#1D2A28;color:#EAF0EE;padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px;min-height:340px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6FC8C0">Territorio C</span>
+        <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-style:italic;font-size:34px;line-height:.95;margin:0">CUERPOS<br>EN SCROLL</h3>
+        <p style="margin:0;font-size:16.5px;line-height:1.5;color:#C3D2CF">El scroll es coreografía: la tipografía se desplaza y recompone, los recortes siguen el gesto del cuerpo, la retícula se rompe a propósito. Máxima diferenciación.</p>
+        <p style="margin:auto 0 0;font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.6;color:#8AA39F">Riesgo: se pelea con carga &lt;3s, con WCAG y con <em>prefers-reduced-motion</em>. Propongo tomarlo prestado en un solo lugar: la frase de cierre de 6.3.</p>
+      </div>
+    </div>
+    <p style="margin:22px 0 0;font-size:17.5px;line-height:1.55;max-width:70ch;color:#3A322B"><strong style="font-weight:600">Recomiendo A, con un gesto de C reservado para la frase de 6.3 y B como sistema de documentos.</strong> Un solo lenguaje dominante, dos préstamos con lugar y límite definidos.</p>
+  </section>
+
+  <!-- 3 · TIPOGRAFIA -->
+  <section style="margin-top:80px">
+    <div style="display:flex;gap:14px;align-items:baseline;border-top:1.5px solid #14100D;padding-top:14px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B4703A">03</span>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">Sistema tipográfico</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:30px;margin-top:28px">
+      <div style="border-top:1px solid #C9BFB1;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6B6157">Display · titulares y escala masiva</div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-stretch:expanded;font-size:clamp(46px,7vw,76px);line-height:.88;letter-spacing:-.03em;margin:10px 0 6px">Archivo</div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:500;font-size:19px;line-height:1.35;letter-spacing:-.01em;color:#3A322B">Expanded 800 / 700 / 500 · variable</div>
+        <p style="margin:12px 0 0;font-size:16.5px;line-height:1.5;color:#3A322B">Grotesca variable con eje de ancho: a 88px pesa como un cartel de teatro y a 16px sigue siendo una UI utilizable. El eje <em>expanded</em> me deja sostener “LA JOVEN” sin recurrir a una condensada de póster, y el ancho normal absorbe el alemán sin cambiar de fuente. Licencia libre, un solo archivo variable: paga poco en carga.</p>
+      </div>
+      <div style="border-top:1px solid #C9BFB1;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6B6157">Voz · sinopsis, testimonios, relato</div>
+        <div style="font-family:'Newsreader',serif;font-weight:300;font-size:clamp(46px,7vw,76px);line-height:.95;margin:10px 0 6px">Newsreader</div>
+        <div style="font-family:'Newsreader',serif;font-size:19px;line-height:1.35;color:#3A322B">Light / Regular + itálicas reales</div>
+        <p style="margin:12px 0 0;font-size:16.5px;line-height:1.5;color:#3A322B">Todo lo que es voz humana —testimonios, sinopsis conceptual, las historias de territorio— va en serif. Es lo que separa esta página de una landing de producto: alguien está hablando. Su itálica es la que carga la frase de 6.3.</p>
+      </div>
+      <div style="border-top:1px solid #C9BFB1;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6B6157">Heredada · etiquetas, fichas, cifras</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(34px,5vw,52px);line-height:1;letter-spacing:-.02em;margin:10px 0 6px">Sansation</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.4;color:#3A322B">→ fallback de maqueta: IBM Plex Mono</div>
+        <p style="margin:12px 0 0;font-size:16.5px;line-height:1.5;color:#3A322B">La tipografía del manual se queda, pero en el papel que sí le corresponde: caja alta con tracking en etiquetas de sección, fichas técnicas, fechas de agenda y el indicador de idioma. Es el vínculo real con la Fundación, y es un vínculo de sistema, no de decoración. <strong style="font-weight:600">Necesito la licencia web o el archivo woff2 de Sansation;</strong> mientras no llegue, la maqueta muestra un mono como marcador.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · PALETA -->
+  <section style="margin-top:80px">
+    <div style="display:flex;gap:14px;align-items:baseline;border-top:1.5px solid #14100D;padding-top:14px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B4703A">04</span>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">Paleta con tokens</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:14px;margin-top:28px">
+      <sc-for list="{{ swatches }}" as="s" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <div style="height:96px;border:1px solid rgba(20,16,13,.14);background:{{ s.hex }}"></div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5;color:#3A322B">{{ s.token }}<br><span style="color:#8A8177">{{ s.hex }}</span><br>{{ s.use }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:38px;border-top:1px solid #C9BFB1">
+      <div style="display:grid;grid-template-columns:110px 1fr;gap:0;font-size:16.5px">
+        <sc-for list="{{ lineage }}" as="r" hint-placeholder-count="7">
+          <div style="border-bottom:1px solid #DCD3C6;padding:14px 12px 14px 0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:{{ r.color }}">{{ r.kind }}</div>
+          <div style="border-bottom:1px solid #DCD3C6;padding:14px 0;line-height:1.5;color:#3A322B"><strong style="font-weight:600;font-family:'Archivo',sans-serif">{{ r.what }}</strong> — {{ r.why }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · PRUEBA DE ALEMAN -->
+  <section style="margin-top:80px">
+    <div style="display:flex;gap:14px;align-items:baseline;border-top:1.5px solid #14100D;padding-top:14px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B4703A">05</span>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">El hero, probado en alemán</h2>
+    </div>
+    <p style="margin:18px 0 0;font-size:17.5px;line-height:1.55;max-width:70ch;color:#3A322B">Boceto de dirección, no diseño final: sirve para ver que la escala aguanta el idioma más largo. <strong style="font-weight:600">“LA JOVEN” no se traduce nunca</strong> — es nombre propio y ancla de marca; lo que se traduce es la bajada. Cambie el idioma:</p>
+
+    <div style="display:flex;gap:8px;margin-top:20px;flex-wrap:wrap">
+      <sc-for list="{{ langs }}" as="l" hint-placeholder-count="4">
+        <button type="button" onClick="{{ l.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;padding:10px 16px;border:1px solid #14100D;background:{{ l.bg }};color:{{ l.fg }};cursor:pointer;min-height:44px">{{ l.code }}</button>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
+      <div style="width:330px;max-width:100%;background:#14100D;border-radius:30px;padding:10px;box-shadow:0 24px 60px -30px rgba(20,16,13,.6)">
+        <div style="position:relative;border-radius:22px;overflow:hidden;background:#14100D;aspect-ratio:9/19;display:flex;flex-direction:column">
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(115deg,#241C16 0 12px,#1C1611 12px 24px);opacity:.9"></div>
+          <div style="position:absolute;inset:0;background:radial-gradient(120% 70% at 70% 8%,rgba(245,199,126,.22) 0%,rgba(20,16,13,0) 60%)"></div>
+          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:18px 18px 0">
+            <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;color:#F2EDE6">↗ ala</div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:#F5C77E;border:1px solid rgba(245,199,126,.5);padding:5px 7px">{{ langCode }}</span>
+              <span style="font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.06em;color:#F2EDE6;border:1px solid rgba(242,237,230,.45);border-radius:999px;padding:6px 10px">{{ contactLabel }}</span>
+            </div>
+          </div>
+          <div style="position:relative;margin-top:auto;padding:0 18px 26px">
+            <div style="font-family:'Archivo',sans-serif;font-weight:800;font-stretch:expanded;font-size:52px;line-height:.86;letter-spacing:-.035em;color:#F2EDE6">LA<br>JOVEN</div>
+            <div style="width:34px;height:2px;background:#F5C77E;margin:14px 0 12px"></div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:500;font-size:13.5px;line-height:1.35;color:#E3DACB;max-width:26ch">{{ heroSub }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;color:#9A9083;margin-top:18px">{{ scrollHint }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1 1 300px;min-width:min(100%,280px)">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6B6157">Nota de traducción · {{ langCode }}</div>
+        <p style="margin:10px 0 0;font-size:18px;line-height:1.55;color:#3A322B">{{ langNote }}</p>
+        <div style="margin-top:24px;border-top:1px solid #C9BFB1;padding-top:16px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6B6157">Frases que pido transcrear, no traducir</div>
+          <ul style="margin:12px 0 0;padding-left:20px;font-size:17px;line-height:1.55;color:#3A322B">
+            <li style="margin-bottom:8px">“No venimos al escenario únicamente a interpretar partituras. <strong style="font-weight:600">Venimos a habitarlas.</strong>” — <em>habitar una partitura</em> no existe en alemán ni en inglés sin sonar místico. Requiere una imagen equivalente, decidida con el traductor.</li>
+            <li style="margin-bottom:8px">“Experiencias <strong style="font-weight:600">significativas</strong>” — <em>meaningful / bedeutungsvoll</em> arrastran tono de ONG. En una web de artista hay que buscar otra palabra o la sección 6.7 se lee como RSE, justo lo que el brief prohíbe.</li>
+            <li style="margin-bottom:8px">“#LaJoven <strong style="font-weight:600">Creando Lazos</strong>” — propongo dejarlo sin traducir, como nombre de programa, con una glosa de una línea. Traducido pierde marca y gana burocracia.</li>
+            <li>“Una historia que también puede <strong style="font-weight:600">medirse</strong>” — el juego entre relato y cifra no sobrevive literal; necesita reescritura por idioma.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · ASSETS -->
+  <section style="margin-top:80px">
+    <div style="display:flex;gap:14px;align-items:baseline;border-top:1.5px solid #14100D;padding-top:14px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B4703A">06</span>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">Lo que necesito de la carpeta, con especificación</h2>
+    </div>
+    <p style="margin:18px 0 0;font-size:17.5px;line-height:1.55;max-width:70ch;color:#3A322B">No me pase la carpeta completa: esta es la lista. Todo en el máximo tamaño original disponible; yo aplico el tratamiento. Si un ítem no existe, es un vacío que hay que grabar o fotografiar, y lo marco como tal.</p>
+    <div style="margin-top:26px;border-top:1px solid #C9BFB1">
+      <sc-for list="{{ assets }}" as="a" hint-placeholder-count="8">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:8px 26px;border-bottom:1px solid #DCD3C6;padding:18px 0">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#B4703A">{{ a.sec }}</div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;line-height:1.2;letter-spacing:-.01em;margin-top:5px">{{ a.name }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5;color:#8A8177;margin-top:6px">{{ a.spec }}</div>
+          </div>
+          <div style="font-size:16.5px;line-height:1.5;color:#3A322B;grid-column:span 2">{{ a.detail }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:26px">
+      <div style="background:#E7DFD3;padding:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#8A6A46">Tratamiento fotográfico único</div>
+        <p style="margin:10px 0 0;font-size:16.5px;line-height:1.5;color:#3A322B">Cuatro años de material de muchos fotógrafos no se unifica eligiendo bien: se unifica con una receta. La mía: base cálida neutra, negros levantados a <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">#14100D</span> (nunca a 0), saturación −18 %, un solo tono de luz ámbar en altas, grano fino constante, y recorte que siempre deja el cuerpo entero o el gesto completo, nunca el plano medio institucional. Foto de territorio, en cambio, sin ámbar: luz natural, contraste bajo, para que no se confunda escena con comunidad.</p>
+      </div>
+      <div style="background:#14100D;color:#F2EDE6;padding:20px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#F5C77E">Fallback si el hero del 20 de octubre no llega</div>
+        <p style="margin:10px 0 0;font-size:16.5px;line-height:1.5;color:#D8CFC2">Plan B, en este orden: (1) tres tomas de archivo de 4–5 s encadenadas con corte a negro —funciona porque el loop es de luz, no de acción continua—; (2) si tampoco hay video usable, una sola fotografía a sangre con un movimiento lentísimo de escala del 4 % y la tipografía entrando; el hero no se cae, cambia de registro. Lo que <strong style="font-weight:600">no</strong> hago es un collage de clips cortos: eso delata falta de material.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · DECISIONES DE ARQUITECTURA -->
+  <section style="margin-top:80px">
+    <div style="display:flex;gap:14px;align-items:baseline;border-top:1.5px solid #14100D;padding-top:14px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B4703A">07</span>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">Decisiones que tomo y defiendo</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:30px;margin-top:28px">
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin-bottom:8px">Media Center: enlace en el pie + panel lateral</div>
+        <p style="margin:0;font-size:16.5px;line-height:1.5;color:#3A322B">No es una sección del scroll. Su único usuario es prensa y el programador que ya decidió; ponerlo en el recorrido narrativo interrumpe el argumento. Va como enlace persistente en el pie y abre un panel con descargas agrupadas (fotos oficiales, logos, press kit PDF, dossier técnico). Además le da al CMS un solo lugar donde subir archivos.</p>
+      </div>
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin-bottom:8px">Los puntos del borde derecho son el único mapa</div>
+        <p style="margin:0;font-size:16.5px;line-height:1.5;color:#3A322B">Se quedan, con etiqueta al hover/focus y navegables por teclado. El hamburguesa abre las mismas anclas, nada más. Sin subpáginas, sin migas, sin menú jerárquico: la sección 6 del brief es literal.</p>
+      </div>
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin-bottom:8px">La frase de 6.3 tiene su propia pantalla</div>
+        <p style="margin:0;font-size:16.5px;line-height:1.5;color:#3A322B">Negro pleno, sin imagen, sin header visible, la frase entrando por peso tipográfico mientras el scroll se frena. Es el único lugar donde tomo prestado el territorio C. Con <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">prefers-reduced-motion</span> la frase simplemente está ahí, a plena escala.</p>
+      </div>
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin-bottom:8px">Las salas de concierto se componen como cartel</div>
+        <p style="margin:0;font-size:16.5px;line-height:1.5;color:#3A322B">Elbphilharmonie, Musikverein, Concertgebouw, Berliner Philharmonie: dieciocho nombres a escala de titular, en una sola columna continua que ocupa toda la pantalla. Es el argumento de venta más fuerte de la página y no cabe en un acordeón. Las cifras van antes, pequeñas y en fila: el número apoya, el nombre de la sala convence.</p>
+      </div>
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin-bottom:8px">Selector de idioma sin banderas, persistente</div>
+        <p style="margin:0;font-size:16.5px;line-height:1.5;color:#3A322B">ES · EN · FR · DE en el header, en Sansation caja alta, con <span style="font-family:'IBM Plex Mono',monospace;font-size:14px">hreflang</span> y URL localizada (<span style="font-family:'IBM Plex Mono',monospace;font-size:14px">/de/</span>). Todo titular se diseña con el texto alemán a la vista; si rompe en alemán, se rediseña, no se encoge.</p>
+      </div>
+      <div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin-bottom:8px">Video: póster propio, nunca UI de YouTube</div>
+        <p style="margin:0;font-size:16.5px;line-height:1.5;color:#3A322B">Los teasers se embeben en diferido: se ve nuestro póster y nuestro botón; el iframe de YouTube solo se crea al primer clic. Eso protege los &lt;3 s y evita importar la estética de YouTube. Los conciertos completos de Berlín, París y Bogotá salen como enlace externo, según derechos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · PREGUNTAS -->
+  <section style="margin-top:80px">
+    <div style="display:flex;gap:14px;align-items:baseline;border-top:1.5px solid #14100D;padding-top:14px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B4703A">08</span>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">Lo que no asumo: preguntas abiertas</h2>
+    </div>
+    <div style="margin-top:24px;border-top:1px solid #C9BFB1">
+      <sc-for list="{{ questions }}" as="q" hint-placeholder-count="8">
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:16px;border-bottom:1px solid #DCD3C6;padding:16px 0">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#B4703A;padding-top:5px">{{ q.n }}</div>
+          <div>
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18.5px;line-height:1.3">{{ q.q }}</div>
+            <div style="font-size:16.5px;line-height:1.5;color:#6B6157;margin-top:5px">{{ q.why }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <div style="margin-top:72px;border-top:1.5px solid #14100D;padding-top:16px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6157">Siguiente: Entrega 2 · mobile, sección por sección, en el orden de 6.1 → 6.11</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6157">No avanzo sin su visto bueno a 02, 03 y 04</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { lang: 'ES' };
+
+  swatches() {
+    const S = (hex, token, use) => ({ hex, token, use });
+    return [
+      S('#14100D', '--lj-sala', 'Fondo dominante. Negro tintado cálido, nunca #000.'),
+      S('#241C16', '--lj-foso', 'Superficie elevada, separadores, fichas técnicas.'),
+      S('#F2EDE6', '--lj-papel', 'Tinta sobre oscuro y fondo de secciones de lectura.'),
+      S('#F5C77E', '--lj-luz', 'Luz de escena. Acento único de la orquesta.'),
+      S('#2E8C86', '--lj-senal', 'Interacción: foco, enlaces, estados activos.'),
+      S('#FF671B', '--fbd-vinculo', 'Naranja de la Fundación. Solo en 6.9 y en el pie.')
+    ];
+  }
+
+  lineage() {
+    const K = { hereda: '#186E68', extiende: '#B4703A', separa: '#A32F3C' };
+    const R = (kind, what, why) => ({ kind, what, why, color: K[kind] });
+    return [
+      R('hereda', 'Negro y blanco del manual como base', 'Los principales del manual ya son negro, blancos y grises; la web mantiene esa economía cromática y por eso puede permitirse un solo acento.'),
+      R('hereda', 'Sansation en etiquetas, fichas y datos', 'Se conserva la tipografía corporativa donde hace su trabajo real, así el parentesco es estructural y no cosmético.'),
+      R('hereda', '#FF671B como color de la Fundación', 'Se respeta intacto, pero se le asigna una función: señalar el vínculo institucional, no vestir la orquesta.'),
+      R('extiende', '#F5C77E derivado del ámbar secundario (#FDBC3D / #FDD2B2)', 'Rebajado en croma y subido en luminosidad para ser legible sobre negro y leerse como luz de sala, no como naranja corporativo.'),
+      R('extiende', '#2E8C86 derivado del turquesa secundario (#4CC1BB)', 'Oscurecido hasta cumplir 4.5:1 sobre papel; da un color de interacción que no compite con el ámbar ni cita al naranja.'),
+      R('separa', 'Display en Archivo en lugar de Sansation / Calibri / Corbel', 'Ninguna de las tres sostiene 80px sin parecer un informe. La escala tipográfica es el principal recurso escénico de la página; aquí pido la excepción formal.'),
+      R('separa', 'Modo oscuro dominante frente al blanco institucional', 'El sistema de la Fundación está pensado para reporte y territorio; La Joven se presenta desde la sala. Con tipografía y logo heredados, el parentesco se sigue leyendo.'),
+      R('separa', 'Header con el ala sola, sin el lockup “Bolívar Davivienda”', 'El manual los une siempre; en una página de artista el lockup permanente contradice el principio rector. El lockup completo vive en el pie y en 6.9.')
+    ];
+  }
+
+  assets() {
+    const A = (sec, name, spec, detail) => ({ sec, name, spec, detail });
+    return [
+      A('6.1 HERO', 'Loop de 15 s, escena', 'Video 4K o 1080p, 16:9 y recorte vertical 9:16, sin texto quemado, sin logos de tercero', 'Un solo movimiento: luz que aparece sobre la orquesta, o un gesto del director. Punto de loop invisible (empieza y termina en el mismo nivel de luz), fundido de 600 ms a negro en la cola. Nada de cortes rápidos ni público.'),
+      A('6.2 QUIÉNES SOMOS', '3 fotos de identidad', 'Vertical 4:5, alta resolución, 1 por bloque', 'Una de escena completa a contraluz (“lo que nos mueve”), una de retrato de grupo fuera del escenario, en ensayo o viaje (“de dónde venimos”), una de cuerpo en movimiento sobre escena con instrumento (“lo que sucede en escena”). Sin fotos posadas de fila de orquesta.'),
+      A('6.3 DIFERENCIAL', '4 fotos de lenguaje escénico', 'Horizontal 3:2 a sangre, alta resolución', 'Una por bloque, y cada una tiene que probar su título sin pie de foto: dramaturgia (escenografía visible), movimiento (danza o circo con músicos), iluminación (haz de luz como protagonista), mirada contemporánea (vestuario o puesta no convencional).'),
+      A('6.4 PRODUCCIONES', '6 producciones completas', 'Por producción: 1 póster vertical 4:5 + 8–12 fotos de galería + 1 enlace de YouTube + ficha técnica en texto', 'Consagración de la Primavera, Petrushka, 5ta de Shostakovich, Cuerpos en Movimiento, Equilibrios Sonoros, Pájaro de Fuego. La galería necesita variedad de plano: 2 generales, 4–6 de escena media, 2 de detalle, 1 de público o sala. El póster no puede ser una foto recortada de la galería.'),
+      A('6.5 COLABORACIONES', 'Retratos de artistas', 'Vertical 4:5, fondo indiferente, 1 por artista con testimonio', 'Prioridad: los 4–6 con testimonio real (Orozco-Estrada primero). Del resto basta el nombre. Necesito además el audio o texto original de cada testimonio: el tono humano se pierde si me llega ya editado a lenguaje institucional.'),
+      A('6.6 TRAYECTORIA', '2–3 fotos de gira internacional', 'Horizontal panorámica, sala reconocible', 'Idealmente la orquesta dentro de una sala identificable (Elbphilharmonie, Musikverein, Concertgebouw). Es la prueba visual de la lista de escenarios.'),
+      A('6.7 CREANDO LAZOS', '5–8 fotos de territorio', 'Mezcla 4:5 y 3:2, luz natural', 'Músico enseñando a un niño con instrumento en mano, no entrega de donaciones ni foto grupal con banner. Necesito identificados: territorio, año y nombre del programa. Sin material así, la sección cae inevitablemente en tono RSE.'),
+      A('TRANSVERSAL', 'Marca y legales', 'SVG del ala y del lockup FJC + FBD, woff2 o licencia web de Sansation, logos de aliados en SVG', 'Sin los SVG la maqueta usa marcadores. Necesito también la política de tratamiento de datos (URL) para el checkbox de 6.11 y los correos del staff por categoría de 6.10.'),
+      A('VACÍOS PROBABLES', 'Lo que sospecho que no existe', '—', 'Retrato editorial individual de músicos (para la sección de identidad), video vertical 9:16 para mobile, y fotografía de sala vacía o montaje técnico —que es justo lo que le habla a un programador. Si no está, propongo agregarlo al rodaje del 20 de octubre.')
+    ];
+  }
+
+  questions() {
+    const Q = (n, q, why) => ({ n, q, why });
+    return [
+      Q('01', '¿La excepción del header —ala sola, sin “Bolívar Davivienda”— está aprobada por marca, o diseño con el lockup completo?', 'Cambia el header, el pie y la relación visual entera. Es la decisión que más me bloquea.'),
+      Q('02', '¿Tienen licencia web de Sansation, o autorizan reemplazarla por una familia libre de función equivalente?', 'Define si el sistema tipográfico final es de tres fuentes o de dos.'),
+      Q('03', '¿Quién es el dueño del copy final y de las traducciones, y en qué fecha entran?', 'El alemán define la escala de los titulares; si entra después del diseño, se rediseña.'),
+      Q('04', '¿Cuántas producciones tendrán material completo en diciembre de 2026, de las seis?', 'Diseño el catálogo para seis actos plenos; con tres, la sección más importante se ve vacía y prefiero otro mecanismo.'),
+      Q('05', '¿Existen testimonios grabados además del de Orozco-Estrada, y en qué idioma?', 'El brief dice que los testimonios son lo más importante de 6.5. Con uno solo, la sección se sostiene con nombres y deja de ser editorial.'),
+      Q('06', '¿La agenda a dos años ya tiene fechas confirmadas que se puedan publicar?', 'Una agenda con dos entradas comunica lo contrario de lo que busca la página. Si está floja, propongo “próximas presentaciones” y giras pasadas como mapa.'),
+      Q('07', '¿Hay decisión sobre dónde se aloja el sitio, o diseño asumiendo estático + CDN?', 'Afecta peso de imagen, formatos, CMS y el compromiso de <3 s.'),
+      Q('08', '¿Quién administra el CMS, con qué frecuencia y cuál es su nivel técnico real?', 'Determino cuántos campos por producción y cuánto es editable frente a cuánto queda fijo en diseño.'),
+      Q('09', '¿Cuál es la política sobre imagen de menores de edad en fotografía de territorio?', 'Hay músicos desde los 16 y niños en 6.7. Es un límite legal, no estético, y afecta la selección de fotos.'),
+      Q('10', '¿El podcast y Spotify tienen contenido activo hoy?', 'Si están vacíos, los saco del cierre: un enlace muerto en la última pantalla pesa más que cinco buenos.')
+    ];
+  }
+
+  langs() {
+    const codes = ['ES', 'EN', 'FR', 'DE'];
+    return codes.map(code => ({
+      code,
+      bg: this.state.lang === code ? '#14100D' : 'transparent',
+      fg: this.state.lang === code ? '#F2EDE6' : '#14100D',
+      pick: () => this.setState({ lang: code })
+    }));
+  }
+
+  renderVals() {
+    const L = {
+      ES: {
+        sub: 'Filarmónica Joven de Colombia · Orquesta de la Fundación Bolívar Davivienda',
+        contact: 'Contáctenos',
+        scroll: 'DESLICE ↓',
+        note: 'Versión de referencia. La bajada ocupa tres líneas a 13,5 px y el titular respira. Es la línea más corta de las cuatro: si diseño con esta, todo lo demás se rompe.'
+      },
+      EN: {
+        sub: 'Youth Philharmonic of Colombia · Orchestra of the Fundación Bolívar Davivienda',
+        contact: 'Get in touch',
+        scroll: 'SCROLL ↓',
+        note: 'Casi idéntica al español en longitud. “Youth Philharmonic” es la traducción que usan los promotores; el nombre de la Fundación no se traduce, va como nombre propio.'
+      },
+      FR: {
+        sub: 'Philharmonique des Jeunes de Colombie · Orchestre de la Fundación Bolívar Davivienda',
+        contact: 'Nous contacter',
+        scroll: 'FAITES DÉFILER ↓',
+        note: 'Crece cerca de un 12 %. El problema real no es el hero sino los botones: “Nous contacter” y “Faites défiler” obligan a que toda etiqueta se diseñe con holgura, no ajustada al español.'
+      },
+      DE: {
+        sub: 'Jugendphilharmonie Kolumbiens · Orchester der Fundación Bolívar Davivienda',
+        contact: 'Kontakt',
+        scroll: 'WEITER ↓',
+        note: 'Caso crítico: +30 % y palabras que no se pueden partir. Por eso la bajada se maqueta a 26 caracteres por línea y cuatro líneas, y el titular usa el eje expanded de Archivo, no un cuerpo mayor. Nota buena: en alemán el label corto “Kontakt” gana espacio; al contrario de lo habitual, el header alemán es el más holgado.'
+      }
+    };
+    const cur = L[this.state.lang] || L.ES;
+    return {
+      swatches: this.swatches(),
+      lineage: this.lineage(),
+      assets: this.assets(),
+      questions: this.questions(),
+      langs: this.langs(),
+      langCode: this.state.lang,
+      heroSub: cur.sub,
+      contactLabel: cur.contact,
+      scrollHint: cur.scroll,
+      langNote: cur.note
+    };
+  }
+}
+</script>
+</body>
+</html>

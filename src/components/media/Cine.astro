@@ -1,0 +1,61 @@
+---
+/**
+ * Cine — el making of completo de la Gira Europa 2023, con su música y sus
+ * entrevistas, en un <dialog> nativo (foco atrapado, Esc y fondo inerte de
+ * serie). El <video> no pide un solo byte hasta que alguien lo abre.
+ *
+ * Mientras suena, la banda sonora de la página se aparta (evento lj:silencio)
+ * y vuelve al cerrar.
+ *
+ * Pendiente: subtítulos. Las entrevistas están en español y el video no trae
+ * pista de subtítulos (WCAG 1.2.2); en producción conviene alojarlo en
+ * YouTube o Vimeo, que además resuelven el ancho de banda de 200 MB.
+ */
+interface Props {
+  titulo: string;
+  cerrar: string;
+}
+const { titulo, cerrar } = Astro.props;
+---
+
+<dialog class="cine" aria-label={titulo} data-cine>
+  <div class="cine__cabecera">
+    <p class="cine__titulo">{titulo}</p>
+    <button type="button" class="cine__cerrar" data-cine-cerrar>{cerrar}</button>
+  </div>
+  <video
+    class="cine__video"
+    controls
+    playsinline
+    preload="none"
+    poster="/media/making-of.jpg"
+    data-cine-video
+  >
+    <source src="/media/making-of.mp4" type="video/mp4" />
+  </video>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-cine]');
+  const video = dialog?.querySelector<HTMLVideoElement>('[data-cine-video]');
+  if (dialog && video) {
+    let origen: HTMLElement | null = null;
+    document.querySelectorAll<HTMLButtonElement>('[data-cine-abrir]').forEach((b) =>
+      b.addEventListener('click', () => {
+        origen = b;
+        document.dispatchEvent(new CustomEvent('lj:silencio'));
+        dialog.showModal();
+        video.play().catch(() => {});
+      }),
+    );
+    dialog.querySelector('[data-cine-cerrar]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      video.pause();
+      document.dispatchEvent(new CustomEvent('lj:sonido-vuelve'));
+      origen?.focus();
+    });
+  }
+</script>

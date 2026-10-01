@@ -1,0 +1,107 @@
+---
+/**
+ * V · Producciones (Andante con moto). Catálogo curatorial: índice tipográfico
+ * de las seis obras y, para las tres con material, un acto que se abre como un
+ * telón (wipe a sangre) con su ficha. Las otras tres no tienen fotografía en el
+ * material entregado: aparecen en el índice con su dossier a solicitud, sin
+ * imagen de relleno.
+ */
+import { Picture } from 'astro:assets';
+import Bucle from '../media/Bucle.astro';
+import { foto } from '../../lib/foto';
+import { getContenido } from '../../i18n/contenido';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const C = getContenido(locale);
+const producciones = C.producciones;
+const m = C.movimientos[4]!;
+const conActo = producciones.indice.filter((p) => p.acto);
+---
+
+<div
+  id={m.id}
+  class="producciones"
+  data-movimiento={m.id}
+  data-mov-numero={m.numero}
+  data-mov-nombre={m.nombre}
+>
+  <header class="producciones__cabeza sc-wrap" data-sc-in>
+    <h2 class="titular titular--xl">{producciones.titulo}</h2>
+    <p class="voz voz--suave">{producciones.bajada}</p>
+  </header>
+
+  <ol class="producciones__indice sc-wrap" data-sc-stagger="60" data-sc-in>
+    {
+      producciones.indice.map((p) => (
+        <li>
+          <a href={p.acto ? `#obra-${p.id}` : '#contacto'} class:list={['producciones__item', { 'producciones__item--sin': !p.acto }]}>
+            <span class="producciones__nombre">{p.titulo}</span>
+            <span class="producciones__estado">{p.acto ? producciones.verObra : producciones.dossierSolicitud}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+
+  {
+    conActo.map((p) => {
+      const a = p.acto!;
+      return (
+        <article id={`obra-${p.id}`} class="obra" data-sc-act="flow" data-sc-drift="#120E0B">
+          <figure class="obra__telon" data-sc-reveal="up" data-sc-reveal-at="0.06 0.4">
+            {
+              a.video ? (
+                <Bucle clip={a.video.clip} />
+              ) : (
+                <Picture
+                  src={foto(a.foto)}
+                  formats={['avif', 'webp']}
+                  widths={[960, 1600, 2400]}
+                  sizes="100vw"
+                  alt={a.alt}
+                  class="obra__img"
+                />
+              )
+            }
+            <div class="obra__scrim" aria-hidden="true" />
+          </figure>
+          <div class="obra__cuerpo sc-wrap">
+            <h3 class="obra__titulo" data-sc-in>{p.titulo}</h3>
+            <div class="obra__columnas">
+              <div data-sc-in>
+                {a.sinopsis && <p class="voz voz--grande">{a.sinopsis}</p>}
+                <dl class="ficha">
+                  {a.ficha.map(([k, v]) => (
+                    <div class="ficha__fila">
+                      <dt>{k}</dt>
+                      <dd>{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <a class="enlace-accion" href="#contacto">{producciones.solicitarDossier}</a>
+              </div>
+              <div class="obra__galeria" data-sc-stagger="80" data-sc-in>
+                {a.galeria.map((g) => (
+                  <figure>
+                    <Picture
+                      src={foto(g.foto)}
+                      formats={['avif', 'webp']}
+                      widths={[640, 1080]}
+                      sizes="(max-width: 860px) 100vw, 30vw"
+                      alt={g.alt}
+                      class="obra__mini"
+                    />
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+      );
+    })
+  }
+</div>

@@ -1,0 +1,211 @@
+---
+/**
+ * Mandos — la banda sonora de la página y el control de los videos.
+ *
+ * Suena la interpretación de Equilibrios Sonoros (Bogotá 2025) desde su segundo
+ * 20 (pedido del cliente; el archivo ya empieza ahí, scripts/videos.py).
+ *
+ * Ningún navegador deja sonar audio por un simple scroll: exige un clic, un toque
+ * o una tecla. Por eso:
+ *   1. «Escuchar» (en el hero y aquí) arranca la música con un gesto real.
+ *   2. El primer clic o toque en cualquier parte de la página también la arranca,
+ *      salvo que la persona la haya apagado antes (se recuerda).
+ *   3. En el primer scroll se intenta igual: si el navegador ya confía en el sitio
+ *      (visitas previas), suena; si no, el intento falla en silencio.
+ * Las teclas no la arrancan: con lector de pantalla, música encima de la voz
+ * sería un obstáculo.
+ *
+ * El botón queda siempre visible para pausarla (WCAG 1.4.2). «Pausar videos»
+ * detiene todos los bucles (WCAG 2.2.2).
+ */
+import { useTranslations, type Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const t = useTranslations(Astro.props.locale);
+---
+
+<audio preload="none" loop data-banda>
+  <source src="/media/banda-sonora.m4a" type="audio/mp4" />
+</audio>
+
+<div
+  class="mandos"
+  role="group"
+  aria-label={t('mandos.grupo')}
+  data-escuchar={t('sonido.escuchar')}
+  data-sonando={t('sonido.sonando')}
+  data-pausar={t('videos.pausar')}
+  data-reanudar={t('videos.reanudar')}
+>
+  <button type="button" class="mando mando--sonido" aria-pressed="false" data-sonido>
+    <span class="mando__ondas" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="mando__texto">
+      <span data-sonido-estado>{t('sonido.escuchar')}</span>
+      <span class="mando__obra">{t('sonido.obra')}</span>
+    </span>
+  </button>
+  <button type="button" class="mando mando--videos" aria-pressed="false" data-videos>
+    <span class="mando__pausa" aria-hidden="true"></span>
+    <span class="visualmente-oculto" data-videos-texto>{t('videos.pausar')}</span>
+  </button>
+</div>
+
+<script>
+  const audio = document.querySelector<HTMLAudioElement>('[data-banda]');
+  const botones = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-sonido]'));
+  const VOLUMEN = 0.6;
+  const textos = document.querySelector<HTMLElement>('.mandos')?.dataset ?? {};
+  const leer = (k: string) => {
+    try {
+      return localStorage.getItem(k);
+    } catch {
+      return null;
+    }
+  };
+  const guardar = (k: string, v: string) => {
+    try {
+      localStorage.setItem(k, v);
+    } catch {}
+  };
+
+  if (audio) {
+    let sonando = false;
+    let apagadoPorPersona = leer('lj-sonido') === 'off';
+    let enPausaExterna = false;
+    let rampa = 0;
+
+    const pintar = () => {
+      document.documentElement.classList.toggle('con-sonido', sonando);
+      for (const b of botones) {
+        b.setAttribute('aria-pressed', String(sonando));
+        const estado = b.querySelector('[data-sonido-estado]');
+        if (estado) estado.textContent = (sonando ? textos.sonando : textos.escuchar) ?? '';
+      }
+    };
+
+    const fundir = (hasta: number, ms: number) =>
+      new Promise<void>((listo) => {
+        cancelAnimationFrame(rampa);
+        const desde = audio.volume;
+        const t0 = performance.now();
+        const paso = (t: number) => {
+          const k = Math.min(1, (t - t0) / ms);
+          audio.volume = desde + (hasta - desde) * k;
+          if (k < 1) rampa = requestAnimationFrame(paso);
+          else listo();
+        };
+        rampa = requestAnimationFrame(paso);
+      });
+
+    const sonar = async () => {
+      if (sonando) return true;
+      audio.volume = 0;
+      try {
+        await audio.play();
+      } catch {
+        return false;
+      }
+      sonando = true;
+      pintar();
+      fundir(VOLUMEN, 2200);
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: 'Equilibrios Sonoros',
+          artist: 'Filarmónica Joven de Colombia',
+          album: 'Bogotá 2025',
+        });
+      }
+      return true;
+    };
+
+    const callar = async () => {
+      if (!sonando) return;
+      sonando = false;
+      pintar();
+      await fundir(0, 500);
+      if (!sonando) audio.pause();
+    };
+
+    for (const b of botones) {
+      b.addEventListener('click', () => {
+        if (sonando) {
+          apagadoPorPersona = true;
+          guardar('lj-sonido', 'off');
+          callar();
+        } else {
+          apagadoPorPersona = false;
+          guardar('lj-sonido', 'on');
+          sonar();
+        }
+      });
+    }
+
+    // Arranque con el primer gesto que el navegador acepta.
+    const intentar = (e: Event) => {
+      if (apagadoPorPersona || sonando || enPausaExterna) return;
+      const t = e.target instanceof Element ? e.target : null;
+      if (t?.closest('[data-sonido], [data-cine-abrir], [data-videos], video, audio')) return;
+      sonar().then((ok) => {
+        if (ok) quitar();
+      });
+    };
+    const quitar = () => {
+      document.removeEventListener('click', intentar, true);
+      document.removeEventListener('touchend', intentar, true);
+    };
+    document.addEventListener('click', intentar, true);
+    document.addEventListener('touchend', intentar, true);
+    window.addEventListener('scroll', intentar, { once: true, passive: true });
+
+    // El making of trae su propio sonido: la banda se aparta y vuelve.
+    document.addEventListener('lj:silencio', () => {
+      enPausaExterna = sonando;
+      callar();
+    });
+    document.addEventListener('lj:sonido-vuelve', () => {
+      if (enPausaExterna) sonar();
+      enPausaExterna = false;
+    });
+
+    // Pestaña oculta: no se toca música para nadie.
+    let ocultoSonando = false;
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        ocultoSonando = sonando;
+        if (sonando) audio.pause();
+      } else if (ocultoSonando) {
+        audio.play().catch(() => {
+          sonando = false;
+          pintar();
+        });
+      }
+    });
+  }
+
+  // Mientras el hero ocupa la pantalla, su propio «Escuchar» basta.
+  const mandos = document.querySelector<HTMLElement>('.mandos');
+  const marcar = () => mandos?.classList.toggle('mandos--oculto', window.scrollY < window.innerHeight * 0.6);
+  marcar();
+  window.addEventListener('scroll', marcar, { passive: true });
+
+  // Pausar todos los videos en bucle.
+  const bVideos = document.querySelector<HTMLButtonElement>('[data-videos]');
+  const tVideos = document.querySelector<HTMLElement>('[data-videos-texto]');
+  if (bVideos) {
+    let pausados = leer('lj-videos') === 'pausados';
+    const pintarVideos = () => {
+      bVideos.setAttribute('aria-pressed', String(pausados));
+      bVideos.classList.toggle('mando--pausado', pausados);
+      if (tVideos) tVideos.textContent = (pausados ? textos.reanudar : textos.pausar) ?? '';
+    };
+    pintarVideos();
+    bVideos.addEventListener('click', () => {
+      pausados = !pausados;
+      guardar('lj-videos', pausados ? 'pausados' : 'vivos');
+      pintarVideos();
+      document.dispatchEvent(new CustomEvent('lj:videos', { detail: { pausados } }));
+    });
+  }
+</script>

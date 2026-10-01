@@ -1,0 +1,91 @@
+---
+/**
+ * Base — el shell de la única página. Monta el motor de scroll-craft sin
+ * modificarlo (public/scrollcraft/, copiado tal cual de la skill) y lo tematiza
+ * solo por tokens (src/styles/landing.css). La hoja del motor va primero para
+ * que los tokens de la marca la sobrescriban.
+ */
+import { Font } from 'astro:assets';
+import Seo from '../components/ui/Seo.astro';
+import Header from '../components/chrome/Header.astro';
+import Mandos from '../components/chrome/Mandos.astro';
+import { useTranslations, type Locale } from '../i18n/ui';
+
+import '../styles/tokens.css';
+import '../styles/landing.css';
+
+interface Props {
+  locale: Locale;
+  path?: string;
+}
+
+const { locale, path = '' } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#14100D" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {
+      locale === 'es' && (
+        /*
+          Idioma automático, solo al entrar por la raíz:
+          1. Si la persona ya eligió idioma en el selector, manda esa elección.
+          2. Si no, el idioma PRINCIPAL del navegador, si es ES, EN, FR o DE.
+          3. Cualquier otro idioma: inglés, el predeterminado global.
+          Nunca redirige a quien abrió /en/, /fr/ o /de/ a propósito, ni a los
+          rastreadores (cada versión tiene que poder indexarse en su URL).
+        */
+        <script is:inline>
+          (function () {
+            try {
+              if (/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)) return;
+              var sup = ['es', 'en', 'fr', 'de'];
+              var elegido = localStorage.getItem('lj-idioma');
+              if (sup.indexOf(elegido) < 0) {
+                var principal = (navigator.language || '').slice(0, 2).toLowerCase();
+                elegido = sup.indexOf(principal) > -1 ? principal : 'en';
+              }
+              if (elegido !== 'es') location.replace('/' + elegido + '/' + location.hash);
+            } catch (e) {}
+          })();
+        </script>
+      )
+    }
+    <link rel="stylesheet" href="/scrollcraft/scrollcraft.css" />
+
+    <Seo locale={locale} path={path} title={t('meta.titulo')} description={t('meta.descripcion')} imageAlt={t('og.alt')} />
+
+    <!-- Archivo pinta el titular del hero (LCP): se precarga. Newsreader es la
+         voz del resto de la página y no bloquea. -->
+    <Font cssVariable="--font-archivo" preload />
+    <Font cssVariable="--font-newsreader" />
+  </head>
+  <body>
+    <a href="#quienes" class="salto-al-contenido">{t('nav.saltar')}</a>
+    <div class="sc-grain" aria-hidden="true"></div>
+
+    <Header locale={locale} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Mandos locale={locale} />
+
+    <script is:inline src="/scrollcraft/scrollcraft.js"></script>
+    <script is:inline>
+      ScrollCraft.mount(document.body);
+      // Elegir idioma en cualquier selector lo fija para las próximas visitas.
+      document.querySelectorAll('a[hreflang]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          try { localStorage.setItem('lj-idioma', a.getAttribute('hreflang')); } catch (e) {}
+        });
+      });
+    </script>
+  </body>
+</html>

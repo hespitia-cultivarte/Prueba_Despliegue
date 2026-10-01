@@ -1,0 +1,56 @@
+---
+/**
+ * II · Quiénes somos (Andante). Tres frases en voz humana, cero cifras.
+ * Cada bloque es su propio acto `flow`, así la ventana del wipe es relativa a
+ * su bloque y no a toda la sección. El contenedor no es acto (no se anidan).
+ * Zigzag de dos (izquierda, derecha) y el tercero a sangre: no tres filas iguales.
+ */
+import { Picture } from 'astro:assets';
+import { foto } from '../../lib/foto';
+import { getContenido } from '../../i18n/contenido';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const C = getContenido(locale);
+const quienes = C.quienes;
+const m = C.movimientos[1]!;
+const direcciones = ['up', 'left', 'up'];
+---
+
+<div
+  id={m.id}
+  class="quienes"
+  data-movimiento={m.id}
+  data-mov-numero={m.numero}
+  data-mov-nombre={m.nombre}
+>
+  {
+    quienes.map((b, i) => (
+      <article
+        class={`quienes__bloque quienes__bloque--${i + 1}`}
+        data-sc-act="flow"
+        data-sc-drift="#17120F"
+      >
+        <figure class="quienes__figura" data-sc-reveal={direcciones[i]} data-sc-reveal-at="0.1 0.46">
+          <Picture
+            src={foto(b.foto)}
+            formats={['avif', 'webp']}
+            widths={[640, 1080, 1600, 2400]}
+            sizes={i === 2 ? '100vw' : '(max-width: 860px) 100vw, 58vw'}
+            alt={b.alt}
+            class="quienes__img"
+          />
+        </figure>
+        <div class="quienes__texto" data-sc-in>
+          <h2 class="quienes__titulo">{b.titulo}</h2>
+          <p class="voz">
+            {b.texto} {b.enfasis && <em>{b.enfasis}</em>}
+          </p>
+        </div>
+      </article>
+    ))
+  }
+</div>

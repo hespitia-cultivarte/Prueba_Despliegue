@@ -1,0 +1,56 @@
+---
+/**
+ * VII · Trayectoria (Allegro). Las cifras entran pequeñas y en fila, y se
+ * cuentan una vez al aparecer (solo números reales del PDF del cliente). El
+ * peso tipográfico se lo llevan las dieciocho salas: el número apoya, el nombre
+ * de la sala convence (DESIGN.md §10). Las salas viven en el mapa (MapaSalas):
+ * un viaje de luz desde Bogotá, sala por sala, al ritmo del scroll.
+ */
+import Bucle from '../media/Bucle.astro';
+import MapaSalas from '../media/MapaSalas.astro';
+import { getContenido, cifras } from '../../i18n/contenido';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const C = getContenido(locale);
+const t = C.trayectoria;
+const m = C.movimientos[6]!;
+---
+
+<section
+  id={m.id}
+  class="trayectoria"
+  data-movimiento={m.id}
+  data-mov-numero={m.numero}
+  data-mov-nombre={m.nombre}
+>
+  <div class="sc-wrap sc-section trayectoria__arriba">
+    <h2 class="titular titular--lg trayectoria__titulo" data-sc-in>{t.titulo}</h2>
+    <ul class="cifras" data-sc-stagger="70" data-sc-in>
+      {
+        cifras.map((c, i) => (
+          <li class="cifra">
+            <span class="cifra__n">
+              <span data-sc-count={`0 ${c.n}`} data-sc-count-ms="1500">
+                {c.n}
+              </span>
+              {c.sufijo}
+            </span>
+            <span class="cifra__etiqueta">{t.cifras[i]}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <figure class="trayectoria__foto" data-sc-in>
+    <Bucle clip="salas" />
+  </figure>
+
+  <div class="sc-wrap">
+    <MapaSalas titulo={t.salasTitulo} alt={t.mapaAlt} origen={t.origen} ciudades={C.ciudades} paises={C.paises} />
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+/**
+ * IX · Lo que viene (Vivace). La gira europea de Pájaro de Fuego tal como está
+ * en el PDF del cliente: once ciudades en quince días, agrupadas por
+ * producción. PENDIENTE: confirmar por escrito que las fechas son publicables.
+ * Sin botones de boletería: no existe ninguna URL todavía.
+ */
+import { getContenido, fechasAgenda } from '../../i18n/contenido';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const C = getContenido(locale);
+const a = C.agenda;
+const m = C.movimientos[8]!;
+const fmtDia = new Intl.DateTimeFormat(locale, { day: '2-digit', timeZone: 'UTC' });
+const fmtMes = new Intl.DateTimeFormat(locale, { month: 'short', timeZone: 'UTC' });
+---
+
+<section
+  id={m.id}
+  class="agenda sc-section"
+  data-movimiento={m.id}
+  data-mov-numero={m.numero}
+  data-mov-nombre={m.nombre}
+>
+  <div class="sc-wrap agenda__rejilla">
+    <header class="agenda__cabeza" data-sc-in>
+      <h2 class="titular titular--lg">{a.titulo}</h2>
+      <p class="agenda__obra">{a.produccion}</p>
+      <p class="antetitulo">{a.gira}</p>
+    </header>
+    <ol class="fechas" data-sc-stagger="45" data-sc-in>
+      {
+        fechasAgenda.map(([iso, ciudad, pais]) => {
+          const d = new Date(`${iso}T00:00:00Z`);
+          return (
+            <li class="fecha">
+              <time datetime={iso} class="fecha__dia">
+                <span class="fecha__num">{fmtDia.format(d)}</span>
+                <span class="fecha__mes">{fmtMes.format(d).replace('.', '')}</span>
+              </time>
+              <span class="fecha__ciudad">{C.ciudades[ciudad]}</span>
+              <span class="fecha__pais">{C.paises[pais]}</span>
+            </li>
+          );
+        })
+      }
+    </ol>
+  </div>
+</section>

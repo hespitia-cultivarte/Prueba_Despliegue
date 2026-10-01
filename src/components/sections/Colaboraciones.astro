@@ -1,0 +1,157 @@
+---
+/**
+ * VI · Colaboraciones (Cantabile). El testimonio es la pieza, no una tarjeta:
+ * serif grande, sin comillas decorativas. Después, en tres alturas:
+ *   1. Rostros: los nombres que el público reconoce, en duotono de la sala
+ *      (scripts/retratos.mjs). Al pasar el cursor la foto recupera su color.
+ *   2. El elenco completo en texto, que es lo que se indexa y se lee.
+ *   3. Las agrupaciones como placas: si existe su logo oficial en
+ *      src/assets/img/colaboraciones/logos/<slug>.svg|png se usa; si no, el
+ *      nombre compuesto en la tipografía de la casa. Son tres: sin carrusel.
+ */
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { foto } from '../../lib/foto';
+import { getContenido, destacados, directores, solistas, populares, agrupaciones } from '../../i18n/contenido';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const C = getContenido(locale);
+const c = C.colaboraciones;
+const m = C.movimientos[5]!;
+
+const logos = import.meta.glob<{ default: ImageMetadata }>('../../assets/img/colaboraciones/logos/*.{svg,png}', {
+  eager: true,
+});
+const logoDe = (slug: string) =>
+  (logos[`../../assets/img/colaboraciones/logos/${slug}.svg`] ?? logos[`../../assets/img/colaboraciones/logos/${slug}.png`])
+    ?.default;
+
+const conRostro = new Set(destacados.map((d) => d.nombre));
+---
+
+<section
+  id={m.id}
+  class="colaboraciones sc-section"
+  data-movimiento={m.id}
+  data-mov-numero={m.numero}
+  data-mov-nombre={m.nombre}
+>
+  <div class="sc-wrap">
+    <h2 class="titular titular--lg colaboraciones__titulo" data-sc-in>{c.titulo}</h2>
+
+    <div class="testimonio">
+      <figure class="testimonio__retrato" data-sc-in>
+        <Picture
+          src={foto(c.testimonio.foto)}
+          formats={['avif', 'webp']}
+          widths={[640, 1080, 1600]}
+          sizes="(max-width: 860px) 100vw, 40vw"
+          alt={c.testimonio.alt}
+          class="testimonio__img"
+        />
+      </figure>
+      <blockquote class="testimonio__voz" data-sc-in>
+        <p>
+          {c.testimonio.texto} <em>{c.testimonio.cierre}</em>
+        </p>
+        <footer>
+          <cite>{c.testimonio.autor}</cite>
+          <span>{c.testimonio.rol}</span>
+        </footer>
+      </blockquote>
+    </div>
+
+    <blockquote class="testimonio-breve" data-sc-in>
+      <p>{c.segundo.texto}</p>
+      <footer><cite>{c.segundo.autor}</cite></footer>
+    </blockquote>
+
+    <ul class="rostros" data-sc-stagger="70" data-sc-in>
+      {
+        destacados.map((d, i) => (
+          <li class:list={['rostro', { 'rostro--mayor': i === 0 }]}>
+            <figure>
+              <div class="rostro__marco">
+                <Picture
+                  src={foto(d.foto)}
+                  formats={['avif', 'webp']}
+                  widths={i === 0 ? [480, 720] : [320, 480, 720]}
+                  sizes={i === 0 ? '(max-width: 860px) 70vw, 34vw' : '(max-width: 860px) 62vw, 17vw'}
+                  alt={d.nombre}
+                  class="rostro__img"
+                />
+                <Picture
+                  src={foto(`${d.foto}-color`)}
+                  formats={['avif', 'webp']}
+                  widths={i === 0 ? [480, 720] : [320, 480, 720]}
+                  sizes={i === 0 ? '(max-width: 860px) 70vw, 34vw' : '(max-width: 860px) 62vw, 17vw'}
+                  alt=""
+                  class="rostro__img rostro__img--color"
+                />
+              </div>
+              <figcaption>
+                <span class="rostro__nombre">{d.nombre}</span>
+                <span class="rostro__rol">{c.roles[d.rol]}</span>
+              </figcaption>
+            </figure>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="elenco" data-sc-stagger="60" data-sc-in>
+      <section class="elenco__grupo elenco__grupo--directores">
+        <h3 class="antetitulo">
+          {c.directores} <span class="elenco__n">{directores.length}</span>
+        </h3>
+        <ul class="elenco__lista elenco__lista--columnas">
+          {directores.map((n) => <li class:list={{ 'elenco__con-rostro': conRostro.has(n) }}>{n}</li>)}
+        </ul>
+      </section>
+
+      <section class="elenco__grupo">
+        <h3 class="antetitulo">
+          {c.solistas} <span class="elenco__n">{solistas.length}</span>
+        </h3>
+        <ul class="elenco__lista">
+          {solistas.map((n) => <li class:list={{ 'elenco__con-rostro': conRostro.has(n) }}>{n}</li>)}
+        </ul>
+      </section>
+
+      <section class="elenco__grupo">
+        <h3 class="antetitulo">
+          {c.populares} <span class="elenco__n">{populares.length}</span>
+        </h3>
+        <ul class="elenco__lista">
+          {populares.map((n) => <li class:list={{ 'elenco__con-rostro': conRostro.has(n) }}>{n}</li>)}
+        </ul>
+      </section>
+
+      <section class="elenco__grupo elenco__grupo--placas">
+        <h3 class="antetitulo">
+          {c.agrupaciones} <span class="elenco__n">{agrupaciones.length}</span>
+        </h3>
+        <ul class="placas">
+          {
+            agrupaciones.map((a) => {
+              const logo = logoDe(a.logo);
+              return (
+                <li class="placa">
+                  {logo ? (
+                    <img src={logo.src} width={logo.width} height={logo.height} alt={a.nombre} class="placa__logo" loading="lazy" decoding="async" />
+                  ) : (
+                    <span class="placa__nombre">{a.nombre}</span>
+                  )}
+                </li>
+              );
+            })
+          }
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>

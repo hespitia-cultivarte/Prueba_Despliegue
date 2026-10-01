@@ -1,0 +1,127 @@
+---
+/**
+ * Seo — hreflang recíproco entre los cuatro idiomas, Open Graph y el
+ * schema.org MusicGroup. Sin librería: `astro-seo` resuelve genérico,
+ * esto es ~60 líneas hechas a la medida del sitio (plan §3).
+ *
+ * El schema MusicEvent (uno por fecha de agenda) espera a que el cliente
+ * confirme que las fechas son publicables y existan enlaces de boletería.
+ */
+import { getAbsoluteLocaleUrlList, getAbsoluteLocaleUrl } from 'astro:i18n';
+import { locales, type Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  path?: string;
+  title: string;
+  description: string;
+  imageAlt: string;
+}
+
+const { locale, path = '', title, description, imageAlt } = Astro.props;
+const site = Astro.site!.origin;
+const ogImage = `${site}/og/${locale}.jpg`;
+
+// getAbsoluteLocaleUrlList devuelve string[] en el mismo orden que
+// astro.config `i18n.locales`, no un objeto por idioma: se empareja a mano.
+const alternateUrls = getAbsoluteLocaleUrlList(path);
+const alternates = locales.map((lang, i) => ({ lang, href: alternateUrls[i] }));
+const canonical = getAbsoluteLocaleUrl(locale, path);
+// x-default = inglés: es el idioma global para cualquier navegador que no
+// esté en ES, FR o DE (decisión del cliente, 24 sep 2026).
+const xDefault = getAbsoluteLocaleUrl('en', path);
+
+const ogLocaleMap: Record<Locale, string> = {
+  es: 'es_ES',
+  en: 'en_GB',
+  fr: 'fr_FR',
+  de: 'de_DE',
+};
+
+// Grafo: el sitio, la orquesta y la fundación que la sostiene.
+// MusicGroup: una sola vez, idéntico en los cuatro idiomas salvo `inLanguage`
+// y la descripción traducida. `foundingDate` se omite a propósito: no hay
+// fecha exacta confirmada, solo "16 años de trayectoria" (DESIGN.md §9).
+const musicGroupJsonLd = {
+  '@type': 'MusicGroup',
+  '@id': `${site}/#orquesta`,
+  name: 'Filarmónica Joven de Colombia',
+  alternateName: [
+    'La Joven',
+    'Youth Philharmonic of Colombia',
+    'Philharmonique des Jeunes de Colombie',
+    'Jugendphilharmonie Kolumbiens',
+  ],
+  genre: 'Classical / Symphonic',
+  foundingLocation: {
+    '@type': 'Place',
+    name: 'Colombia',
+  },
+  location: {
+    '@type': 'Place',
+    name: 'Bogotá, Colombia',
+  },
+  parentOrganization: { '@id': `${site}/#fundacion` },
+  logo: `${site}/favicon.svg`,
+  image: ogImage,
+  url: xDefault,
+  description,
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${site}/#sitio`,
+      url: canonical,
+      name: 'La Joven',
+      inLanguage: locale,
+      description,
+      publisher: { '@id': `${site}/#fundacion` },
+      about: { '@id': `${site}/#orquesta` },
+    },
+    musicGroupJsonLd,
+    {
+      '@type': 'Organization',
+      '@id': `${site}/#fundacion`,
+      name: 'Fundación Bolívar Davivienda',
+      url: 'https://www.fundacionbolivardavivienda.org/',
+    },
+  ],
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+{
+  alternates.map(({ lang, href }) => <link rel="alternate" hreflang={lang} href={href} />)
+}
+<link rel="alternate" hreflang="x-default" href={xDefault} />
+
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="La Joven" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content={ogLocaleMap[locale]} />
+{
+  locales
+    .filter((l) => l !== locale)
+    .map((l) => <meta property="og:locale:alternate" content={ogLocaleMap[l as Locale]} />)
+}
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={imageAlt} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={imageAlt} />
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

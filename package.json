@@ -1,0 +1,39 @@
+{
+  "name": "lajoven",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing one-page de la Filarmónica Joven de Colombia (La Joven), orquesta de la Fundación Bolívar Davivienda. Astro estático, cuatro idiomas (ES/EN/FR/DE), scroll-driven.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sb-talentohumano-ia/landing-page-fjc.git"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.5",
+    "sharp": "^0.35.4"
+  },
+  "allowScripts": {
+    "esbuild": true
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "d3-geo": "^3.1.1",
+    "playwright-core": "^1.63.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^1.0.1",
+    "topojson-client": "^3.1.0",
+    "typescript": "^6.0.3",
+    "world-atlas": "^2.0.2"
+  }
+}

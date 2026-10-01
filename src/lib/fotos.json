@@ -1,0 +1,170 @@
+{
+  "peak/sala-velas": {
+    "credito": "Marcela Gómez",
+    "contexto": "Gira Nacional 15 Años · Teatro Metropolitano, Medellín · 2025",
+    "w": 2400,
+    "h": 1600
+  },
+  "quienes/postura": {
+    "credito": "Peter Adamik",
+    "contexto": "Petrushka · Berliner Philharmonie · 2023",
+    "w": 2400,
+    "h": 1600
+  },
+  "quienes/comunidad": {
+    "credito": "Andrés Felipe Patiño",
+    "contexto": "Gira Nacional Inquebrantables · 2024",
+    "w": 2400,
+    "h": 1600
+  },
+  "quienes/identidad": {
+    "credito": "Marcela Gómez",
+    "contexto": "Gira Nacional Colisionantes · Medellín · 2026",
+    "w": 2400,
+    "h": 1600
+  },
+  "diferencial/narrativa": {
+    "credito": "Marcela Gómez",
+    "contexto": "Gira Nacional 15 Años · Medellín · 2025",
+    "w": 2400,
+    "h": 1600
+  },
+  "diferencial/movimiento": {
+    "credito": "Crédito por confirmar",
+    "contexto": "Equilibrios Sonoros",
+    "w": 2400,
+    "h": 1600
+  },
+  "diferencial/luz": {
+    "credito": "Diego Vega",
+    "contexto": "Cuerpos en Movimiento · 2024",
+    "w": 2400,
+    "h": 1600
+  },
+  "diferencial/mirada": {
+    "credito": "Peter Adamik",
+    "contexto": "Petrushka · Berliner Philharmonie · 2023",
+    "w": 2400,
+    "h": 1600
+  },
+  "producciones/petrushka-1": {
+    "credito": "Peter Adamik",
+    "contexto": "Petrushka · Berliner Philharmonie · 2023",
+    "w": 2400,
+    "h": 1599
+  },
+  "producciones/petrushka-2": {
+    "credito": "Peter Adamik",
+    "contexto": "Petrushka · Berliner Philharmonie · 2023",
+    "w": 2400,
+    "h": 1600
+  },
+  "producciones/petrushka-3": {
+    "credito": "Peter Adamik",
+    "contexto": "Petrushka · Berliner Philharmonie · 2023",
+    "w": 2400,
+    "h": 1599
+  },
+  "producciones/cuerpos-1": {
+    "credito": "Diego Vega",
+    "contexto": "Cuerpos en Movimiento · 2024",
+    "w": 2400,
+    "h": 1600
+  },
+  "producciones/cuerpos-2": {
+    "credito": "Diego Vega",
+    "contexto": "Cuerpos en Movimiento · 2024",
+    "w": 2400,
+    "h": 1600
+  },
+  "producciones/cuerpos-3": {
+    "credito": "Diego Vega",
+    "contexto": "Cuerpos en Movimiento · 2024",
+    "w": 2400,
+    "h": 1600
+  },
+  "producciones/equilibrios-1": {
+    "credito": "Crédito por confirmar",
+    "contexto": "Equilibrios Sonoros · 2025",
+    "w": 2400,
+    "h": 1600
+  },
+  "producciones/equilibrios-2": {
+    "credito": "Crédito por confirmar",
+    "contexto": "Equilibrios Sonoros",
+    "w": 2400,
+    "h": 1600
+  },
+  "producciones/equilibrios-3": {
+    "credito": "Crédito por confirmar",
+    "contexto": "Equilibrios Sonoros · 2025",
+    "w": 2400,
+    "h": 1600
+  },
+  "colaboraciones/orozco": {
+    "credito": "Peter Adamik",
+    "contexto": "Andrés Orozco-Estrada · Petrushka · Berliner Philharmonie · 2023",
+    "w": 2400,
+    "h": 1600
+  },
+  "trayectoria/berlin": {
+    "credito": "Peter Adamik",
+    "contexto": "Berliner Philharmonie · 2023",
+    "w": 2400,
+    "h": 1600
+  },
+  "cierre/ovacion": {
+    "credito": "Marcela Gómez",
+    "contexto": "Gira Nacional 15 Años · Medellín · 2025",
+    "w": 2400,
+    "h": 1600
+  },
+  "colaboraciones/artistas/hilary-hahn": {
+    "credito": "Quincena Musical",
+    "fuente": "https://commons.wikimedia.org/wiki/File:Bremen-_Hahn21_(cropped).jpg",
+    "licencia": "CC BY 2.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+    "contexto": "Wikimedia Commons"
+  },
+  "colaboraciones/artistas/rafael-payare": {
+    "credito": "Jeangagnon",
+    "fuente": "https://commons.wikimedia.org/wiki/File:Rafael_Payare.jpg",
+    "licencia": "CC BY-SA 4.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "contexto": "Wikimedia Commons"
+  },
+  "colaboraciones/artistas/carlos-miguel-prieto": {
+    "credito": "Octavio Nava/Secretaría de Cultura  de la Ciudad de México",
+    "fuente": "https://commons.wikimedia.org/wiki/File:Carlos_Miguel_Prieto_FESTIVAL_CENTRO_HISTORICO.jpg",
+    "licencia": "CC BY-SA 2.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "contexto": "Wikimedia Commons"
+  },
+  "colaboraciones/artistas/andres-cepeda": {
+    "credito": "SonyCOL",
+    "fuente": "https://commons.wikimedia.org/wiki/File:AndresCepeda2018TVA.jpg",
+    "licencia": "CC BY-SA 4.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "contexto": "Wikimedia Commons"
+  },
+  "colaboraciones/artistas/morat": {
+    "credito": "Andrea Herrera / Secretaría de Cultura de la Ciudad de México",
+    "fuente": "https://commons.wikimedia.org/wiki/File:Morat_en_concierto.jpg",
+    "licencia": "CC BY 2.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+    "contexto": "Wikimedia Commons"
+  },
+  "colaboraciones/artistas/diego-torres": {
+    "credito": "Carlos Figueroa Rojas",
+    "fuente": "https://commons.wikimedia.org/wiki/File:Copihue_de_Oro_2018_-_Diego_Torres_-_02.jpg",
+    "licencia": "CC BY-SA 4.0",
+    "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "contexto": "Wikimedia Commons"
+  },
+  "colaboraciones/artistas/orozco-estrada": {
+    "credito": "Archivo La Joven",
+    "fuente": ".handoff/2023/GIRA EUROPEA 2023/Shostakovich 5_ Ginebra, Suiza/4918.png",
+    "licencia": "Material del cliente",
+    "contexto": "Shostakovich 5 · Ginebra · 2023"
+  }
+}

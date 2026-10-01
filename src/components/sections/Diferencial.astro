@@ -1,0 +1,66 @@
+---
+/**
+ * III · El diferencial (Allegro vivace). `pan`: el scroll vertical se vuelve
+ * viaje lateral. Lateral = amplitud de lenguajes, no jerarquía: ninguno de los
+ * cuatro bloques es "el primero". El titular es la primera pieza del rail y
+ * una nota de cierre la última, para que el rail tenga desborde real.
+ * Sin numeración: la secuencia aquí no es información.
+ */
+import { Picture } from 'astro:assets';
+import { foto } from '../../lib/foto';
+import { getContenido } from '../../i18n/contenido';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const C = getContenido(locale);
+const diferencial = C.diferencial;
+const m = C.movimientos[2]!;
+---
+
+<section
+  id={m.id}
+  class="diferencial"
+  data-sc-act="pan"
+  data-sc-span="4.4"
+  data-sc-drift="#1A1411"
+  data-movimiento={m.id}
+  data-mov-numero={m.numero}
+  data-mov-nombre={m.nombre}
+>
+  <div class="diferencial__stage" data-sc-stage>
+    <div class="diferencial__rail" data-sc-pan="0.04">
+      <header class="diferencial__cabeza">
+        <p class="antetitulo">{diferencial.antetitulo}</p>
+        <h2 class="titular titular--xl">{diferencial.titulo}</h2>
+        <p class="voz voz--suave">{diferencial.bajada}</p>
+      </header>
+
+      {
+        diferencial.bloques.map((b, i) => (
+          <article class={`diferencial__pieza diferencial__pieza--${i % 2 ? 'baja' : 'alta'}`}>
+            <figure class="diferencial__figura">
+              <Picture
+                src={foto(b.foto)}
+                formats={['avif', 'webp']}
+                widths={[640, 1080, 1600]}
+                sizes="(max-width: 860px) 82vw, 40vw"
+                alt={b.alt}
+                class="diferencial__img"
+              />
+            </figure>
+            <h3 class="diferencial__titulo">{b.titulo}</h3>
+            <p class="voz voz--pieza">{b.texto}</p>
+          </article>
+        ))
+      }
+
+      <a class="diferencial__cierre" href="#producciones">
+        <span class="antetitulo">{diferencial.cierreAntetitulo}</span>
+        <span class="diferencial__cierre-texto">{diferencial.cierreTexto}</span>
+      </a>
+    </div>
+  </div>
+</section>
