@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![CI](https://img.shields.io/github/actions/workflow/status/sb-talentohumano-ia/landing-page-fjc/ci.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=CI)](https://github.com/sb-talentohumano-ia/landing-page-fjc/actions/workflows/ci.yml)
 [![Astro](https://img.shields.io/badge/Astro-7-BC52EE?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
@@ -206,3 +207,6 @@ dominio real, se reemplaza ese valor y todo lo demás se actualiza solo.
 - [ ] Revisión humana (hablante nativo) de las traducciones EN/FR/DE.
 - [ ] Decidir dónde alojar el making of completo (ver arriba) y confirmar que
       las fechas de gira 2027 (`Agenda.astro`) son publicables.
+=======
+# Prueba_Despliegue
+>>>>>>> 02c96dbf017cc627f8d6a3299cb5a5e5ecd6b5a8
